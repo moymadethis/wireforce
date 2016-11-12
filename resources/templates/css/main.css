@@ -1853,7 +1853,8 @@ input[type="search"]:active {
     z-index: 0; }
 
 .page-head__logo {
-  float: left; }
+  float: left;
+  margin-top: 5px; }
 
 /*------------------------------------*\
     #NAVIGATION
@@ -2044,7 +2045,7 @@ input[type="search"]:active {
   width: 100%; }
 
 .page-head__caption {
-  margin: 60px 0 40px; }
+  margin: 40px 0; }
   .page-head__caption p {
     font-size: 20px;
     font-size: 2rem; }
@@ -2288,6 +2289,15 @@ input[type="search"]:active {
   .form-horz .form-group__controls,
   .form-horz .error__text {
     margin-left: 35%; }
+
+  /*------------------------------------*\
+      #PAGE-HEAD
+  \*------------------------------------*/
+  /**
+   * Adjust logo vertical position now navigation is expanded.
+   */
+  .page-head__logo {
+    margin-top: 10px; }
 
   /*------------------------------------*\
       #NAVIGATION

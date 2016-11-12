@@ -137,6 +137,7 @@
 
 .page-head__logo {
 	float: left;
+	margin-top: $baseline/4;
 }
 
 
@@ -387,7 +388,7 @@
 
 
 .page-head__caption {
-	margin: $baseline*3 0 $baseline*2;
+	margin: $baseline*2 0;
 	
 	p {
 		@include font-size(20);
