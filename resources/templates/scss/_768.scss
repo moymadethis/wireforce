@@ -80,9 +80,18 @@
 		max-height: none; /* [1] */
 	}
 }
+.site-nav__item {
+	padding-bottom: 0;
+}
 
 .site-nav__link {
+	background: none;
+	border-width: 4px;
 	padding: $baseline*1.5 $baseline;
+	
+	.selected & {
+		background: rgba($black,.25);
+	}
 }
 
 /**
@@ -109,9 +118,9 @@
 }
 
 
-.page-foot__sitemap,
-.page-foot__resources,
-.page-foot__contact {
+.page-foot__item--sitemap,
+.page-foot__item--resources,
+.page-foot__item--contact {
 	clear: none;
 	float: left;
 	width: 33.33333%;

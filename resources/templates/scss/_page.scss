@@ -45,7 +45,9 @@
 	h1,
 	h2,
 	h3,
-	h4 {
+	h4,
+	h5,
+	h6 {
 		color: $white;
 	}
 	
@@ -137,7 +139,7 @@
 
 .page-head__logo {
 	float: left;
-	margin-top: $baseline/4;
+	margin: $baseline/4 0 $baseline;
 }
 
 
@@ -184,7 +186,6 @@
 	
 	&.opened {
 		margin-bottom: $baseline;
-		padding-bottom: 2px;
 		max-width: 9999px; /* [1] */
 	}
 }
@@ -194,21 +195,18 @@
 	display: block;
 	font-weight: 600;
 	margin: 0;
-	padding-left: 0;
+	padding: 0 0 2px;
 	text-transform: uppercase;
 	width: 100%;
-	
-	&.selected {
-		background-color: $grey-dark;
-	}
 }
 
 .site-nav__link {
-	border-bottom: 4px solid transparent;
+	background: rgba($black,.30);
+	border-bottom: 2px solid transparent;
 	box-sizing: border-box;
 	color: $grey-light;
 	display: block;
-	padding: $baseline $baseline/2;
+	padding: $baseline/2 $baseline;
 	transition: all .25s;
 	overflow: hidden;
 
@@ -222,8 +220,14 @@
 	}
 	
 	&:hover {
-		background-color: darken($grey-dark,5%);
+		background: rgba($black,.40);
 		border-color: $color-primary-light;
+	}
+	
+	.selected & {
+		background: rgba($black,.50);
+		border-color: $color-primary-light;
+		color: $white;
 	}
 }
 
@@ -399,6 +403,7 @@
 
 .page-foot {
 	@include font-size(14);
+	line-height: $font-lineheight;
 	
 	ul {
 		padding-left: 0;
@@ -410,16 +415,91 @@
 	}
 }
 
-.page-foot__sitemap,
-.page-foot__resources {
+.page-foot__title {
+	@include font-size(14);
+}
+
+.page-foot__item {
+	@include clearfix;
+	margin-bottom: $baseline;
+}
+
+.page-foot__item--sitemap,
+.page-foot__item--resources {
 	float: left;
 	width: 50%;
 }
 
-.page-foot__contact {
+.page-foot__item--contact {
 	clear: left;
 }
 
+
+
+.page-foot__legal {
+	clear: both;
+	margin: 0;
+	
+	li {
+		display: inline-block;
+		margin-right: $baseline/4;
+		
+		&:before {
+			content: "\00b7";
+			margin-right: $baseline/2;
+		}
+	}
+	
+	.copyright {
+		display: block;
+			
+		&:before {
+			display: none;
+		}
+	}
+}
+
+
+
+
+.contact-list {
+	
+	.icon:before {
+		color: $color-primary;
+		@include font-size(20);
+		top: 1px;
+	}
+}
+
+
+.social-list {
+	
+	li {
+		margin-right: $baseline/4;
+	}
+	
+	a {
+		color: $color-primary;
+		
+		&:visited {
+			color: $color-primary;
+		}
+	}
+	
+	.icon {
+		display: block;
+		height: 25px;
+		overflow: hidden;
+		text-indent: -9999px;
+		width: 25px;
+		
+		&:before {
+			@include font-size(25);
+			display: block;
+			text-indent: 0;
+		}
+	}
+}
 
 
 

@@ -69,18 +69,18 @@
 
 
 
-.page-foot__about {
+.page-foot__item--about {
 	float: left;
 	padding-right: $baseline;
 	width: 50%;
 }
 
-.page-foot__sitemap,
-.page-foot__resources {
+.page-foot__item--sitemap,
+.page-foot__item--resources {
 	width: 15%;
 }
 
-.page-foot__contact {
+.page-foot__item--contact {
 	width: 20%;
 }
 

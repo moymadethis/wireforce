@@ -1,0 +1,73 @@
+
+/*------------------------------------*\
+    #FONTELLO
+\*------------------------------------*/
+
+/**
+ * Load fonts!
+ */
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot');
+  src: url('../font/fontello.eot#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff2') format('woff2'),
+       url('../font/fontello.woff') format('woff'),
+       url('../font/fontello.ttf') format('truetype'),
+       url('../font/fontello.svg#fontello') format('svg');
+	   font-style: normal;
+	   font-weight: normal;
+}
+
+/**
+ * Base styling for `.icon---*` class. Comments (1-5) below were included in the
+ * fontello generated CSS file, so I didn't want to remove them incase it broke
+ * anything.
+ *
+ * 1) Be more comfortable with increased icons size. Remove if not needed.
+ * 2) Fix buttons height, for twitter bootstrap.
+ * 3) Animation center compensation - margins should be symmetric. Remove if not
+ *    needed.
+ * 4) For safety reset parent styles, that can break glyph codes.
+ * 5) Font smoothing. That was taken from TWBS.
+ *
+ * 6) I added `position: relative;` so I could knock the icon down a pixel. This
+ *    seems to work/looked better across the board.
+ * 7) Specify locations where icons should display lighter than the inherited
+ *    text-color.
+ */
+ 
+[class^="icon--"]:before,
+[class*=" icon--"]:before {
+	display: inline-block;
+	font-family: "fontello";
+	font-size: 120%;  /* [1] */
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1em; /* [2] */
+	margin-right: $baseline/4;
+	//margin-left: .2em; /* [3] */
+	//opacity: .50;
+	position: relative; /* [6] */
+	//top: 1px; /* [6] */
+	speak: none;
+	text-decoration: inherit;
+	width: 1em;
+	text-align: center;
+	font-variant: normal; /* [4] */
+	text-transform: none; /* [4] */
+	-webkit-font-smoothing: antialiased; /* [5] */
+	-moz-osx-font-smoothing: grayscale; /* [5] */
+}
+
+/**
+ * Classes needed to add relative icons.
+ */
+
+.icon--facebook:before 	{content: '\e800';}
+.icon--twitter:before 	{content: '\e801';}
+.icon--google:before 	{content: '\e802';}
+.icon--linkedin:before	{content: '\e803';}
+.icon--mail:before 		{content: '\e804';}
+.icon--phone:before 	{content: '\e805';}
+

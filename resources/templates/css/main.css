@@ -554,6 +554,82 @@ sub {
   bottom: -.25em; }
 
 /*------------------------------------*\
+    #FONTELLO
+\*------------------------------------*/
+/**
+ * Load fonts!
+ */
+@font-face {
+  font-family: 'fontello';
+  src: url("../font/fontello.eot");
+  src: url("../font/fontello.eot#iefix") format("embedded-opentype"), url("../font/fontello.woff2") format("woff2"), url("../font/fontello.woff") format("woff"), url("../font/fontello.ttf") format("truetype"), url("../font/fontello.svg#fontello") format("svg");
+  font-style: normal;
+  font-weight: normal; }
+/**
+ * Base styling for `.icon---*` class. Comments (1-5) below were included in the
+ * fontello generated CSS file, so I didn't want to remove them incase it broke
+ * anything.
+ *
+ * 1) Be more comfortable with increased icons size. Remove if not needed.
+ * 2) Fix buttons height, for twitter bootstrap.
+ * 3) Animation center compensation - margins should be symmetric. Remove if not
+ *    needed.
+ * 4) For safety reset parent styles, that can break glyph codes.
+ * 5) Font smoothing. That was taken from TWBS.
+ *
+ * 6) I added `position: relative;` so I could knock the icon down a pixel. This
+ *    seems to work/looked better across the board.
+ * 7) Specify locations where icons should display lighter than the inherited
+ *    text-color.
+ */
+[class^="icon--"]:before,
+[class*=" icon--"]:before {
+  display: inline-block;
+  font-family: "fontello";
+  font-size: 120%;
+  /* [1] */
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1em;
+  /* [2] */
+  margin-right: 5px;
+  position: relative;
+  /* [6] */
+  speak: none;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  font-variant: normal;
+  /* [4] */
+  text-transform: none;
+  /* [4] */
+  -webkit-font-smoothing: antialiased;
+  /* [5] */
+  -moz-osx-font-smoothing: grayscale;
+  /* [5] */ }
+
+/**
+ * Classes needed to add relative icons.
+ */
+.icon--facebook:before {
+  content: '\e800'; }
+
+.icon--twitter:before {
+  content: '\e801'; }
+
+.icon--google:before {
+  content: '\e802'; }
+
+.icon--linkedin:before {
+  content: '\e803'; }
+
+.icon--mail:before {
+  content: '\e804'; }
+
+.icon--phone:before {
+  content: '\e805'; }
+
+/*------------------------------------*\
     #COLOUR
 \*------------------------------------*/
 /**
@@ -1789,7 +1865,9 @@ input[type="search"]:active {
   .band--dark h1,
   .band--dark h2,
   .band--dark h3,
-  .band--dark h4 {
+  .band--dark h4,
+  .band--dark h5,
+  .band--dark h6 {
     color: white; }
   .band--dark a:visited {
     color: #e5531b; }
@@ -1854,7 +1932,7 @@ input[type="search"]:active {
 
 .page-head__logo {
   float: left;
-  margin-top: 5px; }
+  margin: 5px 0 20px; }
 
 /*------------------------------------*\
     #NAVIGATION
@@ -1904,7 +1982,6 @@ input[type="search"]:active {
   /* [1] */ }
   .site-nav__list.opened {
     margin-bottom: 20px;
-    padding-bottom: 2px;
     max-width: 9999px;
     /* [1] */ }
 
@@ -1913,18 +1990,17 @@ input[type="search"]:active {
   display: block;
   font-weight: 600;
   margin: 0;
-  padding-left: 0;
+  padding: 0 0 2px;
   text-transform: uppercase;
   width: 100%; }
-  .site-nav__item.selected {
-    background-color: #2b3438; }
 
 .site-nav__link {
-  border-bottom: 4px solid transparent;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid transparent;
   box-sizing: border-box;
   color: #80949d;
   display: block;
-  padding: 20px 10px;
+  padding: 10px 20px;
   transition: all .25s;
   overflow: hidden; }
   .site-nav__link:visited {
@@ -1932,8 +2008,12 @@ input[type="search"]:active {
   .site-nav__link:hover, .site-nav__link:focus {
     color: white; }
   .site-nav__link:hover {
-    background-color: #20272a;
+    background: rgba(0, 0, 0, 0.4);
     border-color: #ea7549; }
+  .selected .site-nav__link {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: #ea7549;
+    color: white; }
 
 /**
  * Toggle that shows/hides the navigation list.
@@ -2052,20 +2132,72 @@ input[type="search"]:active {
 
 .page-foot {
   font-size: 14px;
-  font-size: 1.4rem; }
+  font-size: 1.4rem;
+  line-height: 1.6em; }
   .page-foot ul {
     padding-left: 0; }
   .page-foot li {
     background: none;
     padding-left: 0; }
 
-.page-foot__sitemap,
-.page-foot__resources {
+.page-foot__title {
+  font-size: 14px;
+  font-size: 1.4rem; }
+
+.page-foot__item {
+  *zoom: 1;
+  margin-bottom: 20px; }
+  .page-foot__item:before, .page-foot__item:after {
+    content: "";
+    display: table; }
+  .page-foot__item:after {
+    clear: both; }
+
+.page-foot__item--sitemap,
+.page-foot__item--resources {
   float: left;
   width: 50%; }
 
-.page-foot__contact {
+.page-foot__item--contact {
   clear: left; }
+
+.page-foot__legal {
+  clear: both;
+  margin: 0; }
+  .page-foot__legal li {
+    display: inline-block;
+    margin-right: 5px; }
+    .page-foot__legal li:before {
+      content: "\00b7";
+      margin-right: 10px; }
+  .page-foot__legal .copyright {
+    display: block; }
+    .page-foot__legal .copyright:before {
+      display: none; }
+
+.contact-list .icon:before {
+  color: #e5531b;
+  font-size: 20px;
+  font-size: 2rem;
+  top: 1px; }
+
+.social-list li {
+  margin-right: 5px; }
+.social-list a {
+  color: #e5531b; }
+  .social-list a:visited {
+    color: #e5531b; }
+.social-list .icon {
+  display: block;
+  height: 25px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 25px; }
+  .social-list .icon:before {
+    font-size: 25px;
+    font-size: 2.5rem;
+    display: block;
+    text-indent: 0; }
 
 /*------------------------------------*\
     #ARTICLES
@@ -2266,7 +2398,13 @@ input[type="search"]:active {
   .featured-blog .h-entry__image-link {
     float: left;
     margin-left: -120px;
-    width: 100px; } }
+    width: 100px; }
+
+  .page-foot__legal {
+    clear: both;
+    margin: 0; }
+    .page-foot__legal .copyright {
+      display: inline-block; } }
 /**
  * 768px.
  */
@@ -2331,8 +2469,15 @@ input[type="search"]:active {
       max-height: none;
       /* [1] */ }
 
+  .site-nav__item {
+    padding-bottom: 0; }
+
   .site-nav__link {
+    background: none;
+    border-width: 4px;
     padding: 30px 20px; }
+    .selected .site-nav__link {
+      background: rgba(0, 0, 0, 0.25); }
 
   /**
    * Hide toggle.
@@ -2347,9 +2492,9 @@ input[type="search"]:active {
   .form-quote .form-group {
     width: 33.333%; }
 
-  .page-foot__sitemap,
-  .page-foot__resources,
-  .page-foot__contact {
+  .page-foot__item--sitemap,
+  .page-foot__item--resources,
+  .page-foot__item--contact {
     clear: none;
     float: left;
     width: 33.33333%; }
@@ -2450,16 +2595,16 @@ input[type="search"]:active {
     .feature-list__item:nth-child(4n+1) {
       clear: left; }
 
-  .page-foot__about {
+  .page-foot__item--about {
     float: left;
     padding-right: 20px;
     width: 50%; }
 
-  .page-foot__sitemap,
-  .page-foot__resources {
+  .page-foot__item--sitemap,
+  .page-foot__item--resources {
     width: 15%; }
 
-  .page-foot__contact {
+  .page-foot__item--contact {
     width: 20%; }
 
   /*------------------------------------*\
