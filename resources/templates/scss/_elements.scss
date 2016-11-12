@@ -1,0 +1,61 @@
+
+/*------------------------------------*\
+    #HR
+\*------------------------------------*/
+
+/**
+ * Base `hr` styling.
+ */
+
+hr {
+	border: 0;
+	border-top: 1px solid $border-color;
+	border-bottom: 1px solid $white;
+	display: block;
+	height: 1px;
+	margin: $baseline*2 0;
+	padding: 0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    IMAGES
+\*------------------------------------*/
+
+/**
+ * Base `img` styling.
+ */
+
+img {
+	border-width: 0;
+	vertical-align: middle;
+	max-width: 100%;
+	-ms-interpolation-mode: bicubic;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+
+/**
+ * `figure` and `figcatpion`.
+ */
+
+figure {
+	margin-bottom: $baseline;
+
+	img {
+		margin-bottom: $baseline/4;
+	}
+	
+	figcaption {
+		color: $grey; 
+		display: block;
+		@include font-size(14);
+		font-weight: normal;
+	}
+}

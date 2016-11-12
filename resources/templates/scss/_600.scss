@@ -1,0 +1,34 @@
+
+/*------------------------------------*\
+    #ARTICLES
+\*------------------------------------*/
+
+.featured-projects {
+	
+	.h-entry {
+		box-sizing: border-box;
+		float: left;
+		padding: 0 $baseline/2;
+		width: 50%;
+		
+		&:first-child {
+			width: 100%;
+		}
+	}
+}
+
+
+
+.featured-blog {
+	
+	.h-entry {
+		box-sizing: border-box;
+		padding-left: 120px;
+	}
+	
+	.h-entry__image-link {
+		float: left;
+		margin-left: -120px;
+		width: 100px;
+	}
+}

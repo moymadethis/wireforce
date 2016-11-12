@@ -1,0 +1,283 @@
+
+/*------------------------------------*\
+    #FORMS
+\*------------------------------------*/
+
+/**
+ * Base `form` styling.
+ *
+ * 1. Adjust `.btn` margins to match that of other form elements.
+ */
+ 
+form {
+	margin: 0 0 $baseline 0;
+	position: relative;
+	
+	.btn {
+		margin-bottom: $baseline/2;  /* [1] */
+	}
+}
+
+
+/**
+ * Base `fieldset` styles.
+ *
+ * 1. Remove bottom margin from the last fieldset for consistent spacing.
+ */
+	
+fieldset {
+	background: $grey-lighter;
+	border-width: 0;
+	box-sizing: border-box;
+	margin-bottom: 4px;
+	padding: $baseline $baseline 0;
+	width: 100%;
+	*width: auto;
+	
+	&:last-child {
+		margin-bottom: 0; /* [1] */
+	}
+}
+
+
+/**
+ * The main form heading (don't use `legend`).
+ *
+ * 1. Reduce space between heading and following paragraph (if there is one).
+ */
+
+.form-title {
+	margin-bottom: $baseline;
+	
+	small {
+		color: lighten($text-color,10%);
+		font-weight: 400;
+	}
+	
+	+ p {
+		margin: -$baseline/1.25 0 $baseline; /* [1] */
+	}
+}
+
+
+/**
+ * `.form-group` is used to group labels and inputs/form elements together.
+ *
+ * 1. All margins are equal for consistency.
+ * 2. `Clearfix` is applied to prevent margin collapse, helping with spacing
+ *    consistency. And also for when a class of `.form-horz` is used to present
+ *    the label and controls horizontally aligned which is achieved using floats
+ *    and extended in _768.scss.
+ * 3. When a class of `.error` is applied we adjust the colouring of text/input
+ *    elements so it stands out, drawing the users attention to where they've
+ *    made a mistake entering data on the form.
+ */
+
+.form-group,
+.form-group__title,
+.form-group__controls {
+	margin-bottom: $baseline/2; /* [1] */
+}
+
+.form-group {
+	@include clearfix;  /* [2] */
+	
+	&.error {  /* [3] */
+		
+		.form-group__title,
+		.error__text,
+		.required {
+			color: $alert-error-bg;
+		}
+		
+		textarea,
+		.textfield {
+			border-color: $alert-error-border-color;
+			background-color: lighten($alert-error-bg,40%);
+			box-shadow: inset 2px 2px 0 lighten($alert-error-bg,30%);
+			color: $red;
+		}
+		
+		::-webkit-input-placeholder {color: lighten($alert-error-bg,20%);}
+		::-moz-placeholder	 		{color: lighten($alert-error-bg,20%);}
+	}
+}
+
+/**
+ * Extends `.form-group` for more control over groups of buttons usually located
+ * at the foot of form/fieldsets.
+ */
+
+.form-group--btns {
+	text-align: right;
+}
+
+/**
+ * `.form-group__title` is applied to a label (title) to the group of controls.
+ */
+
+.form-group__title {
+	color: $heading-font-color;
+	@include font-size(16);
+}
+
+/**
+ * `.form-group__controls` is used to contain elements that require action, for
+ * example inputs, textareas, radio/checkboxes and selects.
+ *
+ * 1. Paragraph margins are adjusted to match that of the form elements.
+ */
+
+.form-group__controls {
+	@include clearfix;
+	
+	p {
+		margin-bottom: $baseline/2; /* [1] */
+	}
+}
+
+
+/**
+ * Base form element styling.
+ */
+
+label,
+input,
+button,
+select,
+textarea {
+	@include font-size($font-size);
+	vertical-align : baseline;
+	*vertical-align : middle;
+}
+
+/**
+ * Base label element styling.
+ * An asterisk can be used with a class of `.required` for mandatory fields.
+ */
+
+label {
+	color: $text-color;
+	cursor: pointer;
+	display: block;
+	font-weight: normal;
+	margin-bottom: $baseline/2;
+
+	input,
+	textarea,
+	select {
+		display: block;
+	}
+}
+
+.required {
+	color: $color-primary;
+	font-weight: 600;
+}
+
+
+/**
+ * Default textfield & textarea styling.
+ *
+ * 1. Removes default iOS input shadow.
+ * 2. Textfield/areas have a default width of 100% but we have some handy preset
+ *    classes that can be applied to set fixed (smaller) widths.
+ */
+
+textarea,
+.textfield {
+	background-color: $input-bg;
+	box-shadow: $input-shadow;
+	box-sizing: border-box;
+	border: $input-border-width $input-border-style $input-border;
+	color: $input-color;
+	display: inline-block;
+	font-family: $font-family;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: $baseline/2;
+	padding: 0 10px;
+	transition: border-color .25s;
+	width: 100%;
+	-webkit-appearance:none;  /* [1] */
+
+	&:hover {
+		border-color: $input-hover;
+	}	
+	
+	&:focus {
+		border-color: $input-focus;
+		outline: 0;
+		outline: thin dotted \9;
+	}
+	
+	&.input-mini 	{width: 65px;}	/* [2] */
+	&.input-small	{width: 100px;} /* [2] */
+}
+
+textarea {
+	height: auto;
+	overflow: auto;
+	padding: $baseline/2;
+	resize: vertical;
+	vertical-align: top;
+}
+
+/**
+ * Text input placeholder styling.
+ */
+ 
+::-webkit-input-placeholder {
+	color: $placeholder-color;
+	@include font-size($font-size);
+	font-style: italic;
+}
+
+::-moz-placeholder {
+	color: $placeholder-color;
+	@include font-size($font-size);
+	font-style: italic;
+}
+
+
+/**
+ * Default file type `input` styling. Extended in _uniform.scss.
+ * Font-size/lineh-eight is only really there to align text/input in Chrome.
+ * when javascript is disabled.
+ */
+
+input[type="file"] {
+	@include font-size(13);
+	line-height: 13px;
+}
+
+
+/**
+ * Default `select` styling. Extended in _uniform.scss.
+ */
+ 
+select {
+	width: 100%;
+}
+
+
+/**
+ * Default `checkbox` & `radio` styling. Extended in _uniform.scss.
+ *
+ * 1. Styling when javascript is disabled is extended within `.no-js {}`.
+ */
+
+.no-js { /* [1] */
+	
+	.radiobtn,
+	.checkbox {
+		padding-left: 20px;
+	}
+	
+	.radiobtn input[type="radio"],
+	.checkbox input[type="checkbox"] {
+		float: left;
+		margin: 4px 0 0 -20px;
+	}
+}
+

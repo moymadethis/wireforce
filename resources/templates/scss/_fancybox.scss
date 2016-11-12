@@ -1,0 +1,332 @@
+
+/*------------------------------------*\
+    #FANCYBOX (v2.1.5)
+\*------------------------------------*/
+
+/**
+ * Base resets.
+ */
+
+.fancybox-wrap,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-nav,
+.fancybox-nav span,
+.fancybox-tmp {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	vertical-align: top;
+}
+
+
+/**
+ * Overlay (background).
+ */
+
+.fancybox-overlay {
+	background: rgba($black,.75);
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 8010;
+	
+	.fancybox-lock & {
+		overflow: auto;
+		overflow-y: scroll;
+	}
+}
+
+.fancybox-overlay-fixed {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+
+/**
+ * Outermost 'wrapping' div.
+ */
+
+.fancybox-wrap {
+	box-shadow: 0 0  0 10px rgba(0, 0, 0, 0.25);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 8020;
+}
+
+.fancybox-opened {
+	z-index: 8030;
+}
+
+/**
+ * 'Skin', where styling like background and padding is applied. Padding is set
+ * within main.js. Moved 'box-shadow' to `.fancybox-wrap` so it doesn't 'jump'
+ * into place after fancybox has loaded.
+ */
+
+.fancybox-skin {
+	background: $white;
+	position: relative;
+	text-shadow: none;
+}
+
+/**
+ * Two div's which wrap the content div.
+ *
+ * 1) Add momentum scrolling to iframe-type fancyboxes.
+ */
+ 
+.fancybox-outer, 
+.fancybox-inner {
+	position: relative;
+}
+
+.fancybox-inner {
+	overflow: hidden;
+	
+	.fancybox-type-iframe & { /* [1] */
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+
+/**
+ * Set height/width to 100% for image and iframe fancyboxes.
+ */
+
+.fancybox-image,
+.fancybox-iframe {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+.fancybox-image {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+
+/**
+ * Error message styling (if required).
+ */
+
+.fancybox-error {}
+
+
+/**
+ * Animated loading .gif.
+ */
+ 
+#fancybox-loading {
+	background: $black;
+	cursor: pointer;
+	margin: -25px 0 0 -25px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 8060;
+	
+	div {
+		height: 50px;
+		background: url(../img/interface/ajax-loading-dark.gif)  no-repeat center center;
+		width: 50px;
+	}
+}
+
+/**
+ * Close 'x' button.
+ */
+
+.fancybox-close {
+	background: $btn-primary-bg url(../img/sprite/btn-close.png) no-repeat center 5px;
+	box-shadow: inset 0 -2px 0 $btn-primary-border-color;
+	border-radius: 100%;
+	cursor: pointer;
+	height: 30px;
+	position: absolute;
+	top: -15px;
+	transition: all .25s;
+	right: -15px;
+	width: 30px;
+	z-index: 8040;
+	
+	&:hover,
+	&:focus {
+		background-color: $btn-primary-bg-hover;
+		box-shadow: inset 0 -2px 0 $btn-primary-border-color-hover;
+	}
+	
+	&:active {
+		box-shadow: none;
+		top: -14px;
+	}
+}
+
+/**
+ * Prev/next arrows.
+ */
+
+.fancybox-nav {
+	background: transparent url('blank.gif'); // Helps IE.
+	cursor: pointer;
+	height: 100%;
+	padding-bottom: 20px;
+	position: absolute;
+	top: -20px;
+	text-decoration: none;
+	width: 25%;
+	z-index: 8040;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	
+	&:hover {
+		
+		span {
+			visibility: visible;
+		}
+	}
+	
+	span {
+		background: $btn-bg url(../img/interface/pagination-arrows.png) no-repeat left top;
+		box-shadow: inset 0 -2px 0 $btn-border-color;
+		border-radius: 100%;
+		cursor: pointer;
+		height: 30px;
+		margin-top: -15px;
+		position: absolute;
+		top: 50%;
+		transition: all .25s;
+		left: -15px;
+		width: 30px;
+		visibility: hidden;
+		z-index: 8040;
+		
+		&:hover,
+		&:focus {
+			background-color: $btn-bg-hover;
+			box-shadow: inset 0 -2px 0 $btn-border-color-hover;
+		}
+		
+		&:active {
+			box-shadow: none;
+			margin-top: -14px;
+		}
+	}
+}
+
+.fancybox-prev {
+	left: -20px;
+}
+
+.fancybox-next {
+	right: -20px;
+	
+	span {
+		background-position: right top;
+		right: -15px;
+		left: auto;
+	}
+}
+
+
+/**
+ * `fancybox-tmp`.
+ */
+
+.fancybox-tmp {
+	max-height: 99999px;
+	overflow: visible !important;
+	position: absolute;
+	top: -99999px;
+	left: -99999px;
+	visibility: hidden;
+	max-width: 99999px;
+}
+
+
+/**
+ * Overlay helper.
+ */
+
+.fancybox-lock {
+    overflow: hidden !important;
+    width: auto;
+    
+    body {
+    	overflow: hidden !important;
+	}
+}
+
+.fancybox-lock-test {
+    overflow-y: hidden !important;
+}
+
+
+/**
+ * Title text created using `title` attribute on `img` tags. Includes options
+ * for title position...
+ * 
+ * 1) Outside (default).
+ * 2) Inside.
+ * 3) Over/on top.
+ */
+
+.fancybox-title {
+	position: relative;
+	visibility: hidden;
+	z-index: 8050;
+	
+	.fancybox-opened & {
+		visibility: visible;
+	}
+}
+
+.fancybox-title-float-wrap {
+	margin-bottom: -35px;
+	position: absolute;
+	right: 50%;
+	bottom: 0;
+	text-align: center;
+	z-index: 8050;
+	
+	.child {
+		background: rgba(0,0,0,.75);
+		border-radius: 4px;
+		color: $white;
+		display: inline-block;
+		margin-right: -100%;
+		padding: 2px 20px;
+		white-space: nowrap;
+	}
+}
+
+.fancybox-title-outside-wrap { /* [1] */
+	color: $white;
+	margin-top: 10px;
+	position: relative;
+}
+
+.fancybox-title-inside-wrap { /* [2] */
+	padding-top: 10px;
+}
+
+.fancybox-title-over-wrap { /* [3] */
+	background: rgba(0,0,0,.75);
+	box-sizing: border-box;
+	color: $white;
+	padding: 5px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+

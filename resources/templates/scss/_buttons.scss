@@ -1,0 +1,184 @@
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+/**
+ * Default styling for buttons. Extend this object with a `.btn--*` skin class
+ * to change background-color, size or apply a relevant icon preceding the text.
+ *
+ * 1. Add a left margin when to any `.btn` that follows another.
+ */
+
+.btn {
+	background-color: $btn-bg;
+	background-repeat: no-repeat;
+	border: 0;
+	box-sizing: border-box;
+	color: $btn-color;
+	cursor: pointer;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	font-family: $font-family;	
+	@include font-size(16);
+	font-weight: 600;
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: $baseline;
+	*margin-left: .3em;
+	padding: 0 $baseline;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: all .25s;
+	vertical-align: middle;
+	
+	&:before { /* [1] */
+		margin-left: -$baseline/4;
+	}
+
+	&:visited {
+		background-color: $btn-bg;
+		color: $btn-color;
+	}
+	
+	&:hover,
+	&:focus {
+		background-color: $btn-bg-hover;
+		box-shadow: inset 0 -2px 0 $btn-border-color-hover;
+		color: $btn-color;
+		outline: 0;
+		text-decoration: none;
+	}
+	
+	&:active {
+		box-shadow: none;
+		top: 1px;
+	}
+	
+	+ .btn {
+		margin-left: $baseline/4; /* [1] */
+	}
+}
+
+/**
+ * For disabled buttons use a class of `.btn--disabled` which lowers opacity and
+ * changes the cursor. Extends `.btn`.
+ */
+
+.btn--disabled {
+	cursor: default;
+	opacity: .50;
+}
+
+
+/**
+ * Alternative button skins. Extends `.btn`.
+ */
+
+.btn--primary {
+	background-color: $btn-primary-bg;
+	box-shadow: inset 0 -2px 0 $btn-primary-border-color;
+	
+	&:visited {
+		background-color: $btn-primary-bg;
+	}
+	
+	&:hover,
+	&:focus {
+		background-color: $btn-primary-bg-hover;
+		box-shadow: inset 0 -2px 0 $btn-primary-border-color-hover;
+	}
+	
+	&:active {
+		box-shadow: none;
+	}
+}
+
+.btn--neutral {
+	background-color: $btn-neutral-bg;
+	box-shadow: inset 0 -2px 0 $btn-neutral-border-color;
+	
+	&:visited {
+		background-color: $btn-neutral-bg;
+	}
+	
+	&:hover,
+	&:focus {
+		background-color: $btn-neutral-bg-hover;
+		box-shadow: inset 0 -2px 0 $btn-neutral-border-color-hover;
+	}
+	
+	&:active {
+		box-shadow: none;
+	}
+}
+
+
+/**
+ * Alternative button sizes. Extends `.btn`.
+ */
+
+.btn--large {
+	@include font-size(20);
+	
+	&:before {
+		font-size: 110%;
+	}
+}
+
+.btn--small {
+	@include font-size(14);
+	line-height: 16px;
+	padding: 5px 12px 6px;
+	
+	&:before {
+		font-size: 110%;
+		margin-left: -3px;
+	}
+}
+
+.btn--xsmall {
+	@include font-size(13);
+	line-height: 15px;
+	padding: 4px 10px 5px;
+	
+	&:before {
+		font-size: 110%;
+		margin-left: -3px;
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    #CLOSE BUTTON (generic)
+\*------------------------------------*/
+
+/**
+ * Close 'x' button - used throughout for tooltips & alerts.
+ */
+
+.btn-close {
+	background: url(../img/sprite/btn-close.png) no-repeat 0 -60px;
+	border: none;
+	border-radius: 100%;
+	display: block;
+	float: right;
+	height: 20px;
+	margin: 0 0 $baseline/2 $baseline/2;
+	overflow: hidden;
+	text-indent: -9999px;
+	transition: all .25s ease-in;
+	width: 20px;
+	
+	&:hover {
+		background-color: rgba($white,.25);
+		transform: rotate(90deg);
+	}
+}
+

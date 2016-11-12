@@ -1,0 +1,476 @@
+
+/*------------------------------------*\
+    #HELPERS
+\*------------------------------------*/
+
+.align-center {
+	text-align: center;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #OBJECTS/WRAPPERS
+\*------------------------------------*/
+
+/**
+ * The `.section` wrapper for horizintal groups of content. Almost always
+ * contains direct child of `.wrap` to center content, set with a max-width.
+ * 
+ * The `section` div has two different states:
+ *
+ * 1) A grey background and border
+ * 2) A white background and border
+ *
+ * 1. While styling for each state is similar, depending on how they're stacked
+ *    borders and vertical padding is reduced/removed. For example, if the same
+ *    states are stacked on top of each other we remove the `border-top` and
+ *    `padding-top` on the following `.section` to remove excess vertical space.
+ * 2. And add the border/padding on again if it's an alternate `.section`.
+ */
+
+.band {
+	padding: $baseline*3 0;
+}
+
+.band--tint {
+	background: lighten($grey-lighter,5%);
+}
+
+.band--dark {
+	background: $grey-dark;
+	
+	h1,
+	h2,
+	h3,
+	h4 {
+		color: $white;
+	}
+	
+	a {
+		&:visited {
+			color: $link-color;
+		}
+		
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+	}
+	
+	.amp {
+		color: $white;
+	}
+}
+
+.band--primary {
+	background: linear-gradient(to right, $color-primary-dark 0%, rgb(235,103,24) 100%);
+	color: $color-primary-light;
+	
+	h1,
+	h2,
+	h3,
+	h4 {
+		color: $white;
+	}
+	
+	.amp {
+		color: $white;
+	}
+}
+
+
+/**
+ * Child of `.section` container to center content set with a max-width.
+ */
+
+.wrap {
+	@include clearfix;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: $baseline*2 $baseline $baseline;
+	width: 100%;
+	max-width: 1200px;
+	
+	.page-head & {
+		padding: 0 $baseline;
+	}
+	
+	.page-head &,
+	.page-foot & {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+
+
+
+/*------------------------------------*\
+    #PAGE-HEAD
+\*------------------------------------*/
+
+/**
+ * The `.page-head` can contain user info and navigation, though navigation is
+ * not always displayed depending on the user and/or page type.
+ */
+
+.page-head {
+	background: $grey-dark url(../img/interface/bg-tile.png) 0 0;
+	padding-top: $baseline;
+	position: relative;
+	
+	&:before {
+		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.40) 100%);
+		content: "";
+		display: block;
+		height: 50%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 0;
+	}
+}
+
+.page-head__logo {
+	float: left;
+}
+
+
+
+/*------------------------------------*\
+    #NAVIGATION
+\*------------------------------------*/
+
+/**
+ * `.site-nav` is the main page navigation. It has 3 states:
+ *
+ * 1) On mobile/small screens the responsive-nav.js plug-in comes into play and
+ *    a toggle (#site-nav__toggle) is displayed which expands/collapses the list
+ *    of nav items.
+ * 2) Above 768px, the toggle is hidden and the navigation is always in view
+ *    again but only the icons are displayed to minimise horizontal space. The
+ *    styling for this state is extended in _768.scss.
+ * 3) Above 992px both icons and text is displayed on each nav item. This is
+ *    extended in _992.scss.
+ */
+
+.site-nav {
+	@include clearfix;
+	width: 100%;
+}
+
+/**
+ * Base styling for the navigation list.
+ *
+ * 1. Required for responsive.js - didn't want to remove from their theme/base 
+ *    styling - as I assume they're in for a reason!
+ */
+
+.site-nav__list {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	clip: rect(0 0 0 0); /* [1] */
+	max-height: 0; /* [1] */
+	position: absolute; /* [1] */
+	display: block; /* [1] */
+	overflow: hidden; /* [1] */
+	zoom: 1; /* [1] */
+	
+	&.opened {
+		margin-bottom: $baseline;
+		padding-bottom: 2px;
+		max-width: 9999px; /* [1] */
+	}
+}
+
+.site-nav__item {
+	background: none;
+	display: block;
+	font-weight: 600;
+	margin: 0;
+	padding-left: 0;
+	text-transform: uppercase;
+	width: 100%;
+	
+	&.selected {
+		background-color: $grey-dark;
+	}
+}
+
+.site-nav__link {
+	border-bottom: 4px solid transparent;
+	box-sizing: border-box;
+	color: $grey-light;
+	display: block;
+	padding: $baseline $baseline/2;
+	transition: all .25s;
+	overflow: hidden;
+
+	&:visited {
+		color: $grey-light;
+	}
+	
+	&:hover,
+	&:focus {
+		color: $white;
+	}
+	
+	&:hover {
+		background-color: darken($grey-dark,5%);
+		border-color: $color-primary-light;
+	}
+}
+
+/**
+ * Toggle that shows/hides the navigation list.
+ *
+ * 1. Background-position is adjusted when class of `.open` is added by
+ *    responsive-nav.js.
+ */
+
+#site-nav__toggle {
+	background: url(../img/interface/site-nav-toggle.png) no-repeat left center;
+	display: block;
+	float: right;
+	height: 30px;
+	text-indent: -9999px;
+	transition: all .50s ease-in;
+	width: 30px;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-touch-callout: none;
+	user-select: none;
+	
+	&.open {
+		background-position: right center; /* [1] */
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    #FOOTER
+\*------------------------------------*/
+
+/**
+ * The page footer is very simple and only holds a logo and copyright text...
+ */
+ 
+.page-foot {
+	background: $grey-dark url(../img/interface/bg-tile.png) 0 0;
+	padding-top: $baseline;
+	position: relative;
+	
+	&:before {
+		background: linear-gradient(to bottom, rgba(0,0,0,.40) 0%,rgba(0,0,0,0) 100%);
+		content: "";
+		display: block;
+		height: 50%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+	
+	p {
+		@include font-size(14);
+	}
+	
+	a {
+		color: $text-color;
+		
+		&:visited {
+			color: $text-color;
+		}
+		
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+	}
+}
+
+.page-foot__logo {
+	display: block;
+	margin-bottom: $baseline/2;
+}
+
+
+.feature-list {
+	margin: 0;
+	padding-left: 0;
+	text-align: center;
+}
+
+.feature-list__item {
+	background: none;
+	box-sizing: border-box;
+	padding: 0 $baseline/2;
+	
+	p {
+		margin-bottom: $baseline/2;
+	}
+}
+
+.feature-list__icon {
+	margin: 0 auto $baseline;
+	max-width: 120px;
+	width: 100%;
+}
+
+.arrow-link {
+	font-style: italic;
+	
+	&:after {
+		color: $link-color-hover;
+		content:"\203a";
+		font-style: normal;
+		opacity: 0;
+		position: relative;
+		left: 0;
+		transition: all .10s ease-in;
+	}
+	
+	&:hover {
+		&:after {
+			opacity: 1;
+			left: 5px;
+		}
+	}
+}
+
+
+.client-list {
+	margin-botom: $baseline;
+	padding-left: 0;
+	text-align: center;
+}
+
+.client-list__item {
+	background: none;
+	display: inline-block;
+	margin: 0 $baseline $baseline;
+	padding: 0;
+}
+
+
+
+
+
+.form-quote {
+	
+	.form-group__title {
+		display: none;
+	}
+	
+	.textfield {
+		background: $grey-darker;
+		box-shadow: inset 3px 3px 0 darken($grey-darker,2%);
+		color: $white;
+		
+		&:hover {border-color: lighten($grey,5%);}
+		&:focus {border-color: lighten($grey,10%);}
+	}
+	
+	.btn {
+		width: 100%;
+	}
+}
+
+
+
+
+.page-head__caption {
+	margin: $baseline*3 0 $baseline*2;
+	
+	p {
+		@include font-size(20);
+	}
+}
+
+
+
+.page-foot {
+	@include font-size(14);
+	
+	ul {
+		padding-left: 0;
+	}
+	
+	li {
+		background: none;
+		padding-left: 0;
+	}
+}
+
+.page-foot__sitemap,
+.page-foot__resources {
+	float: left;
+	width: 50%;
+}
+
+.page-foot__contact {
+	clear: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------*\
+    #ARTICLES
+\*------------------------------------*/
+
+.h-feed {
+	
+	.p-name {
+		@include font-size(16);
+		margin-bottom: 0;
+	}
+	
+	.dt-published {
+		color: lighten($text-color,10%);
+		@include font-size(14);
+		font-style: italic;
+	}
+	
+	.p-summary {
+		margin-bottom: $baseline/2;
+	}
+}
+
+.h-entry__image-link {
+	display: block;
+	margin-bottom: $baseline;
+}
+
+
+.featured-projects {
+	
+	.h-entry {
+		text-align: center;
+	}
+	
+	.u-featured {
+		box-sizing: border-box;
+	}
+	
+	.p-name {
+		margin-bottom: $baseline/2;
+	}
+}
+
+

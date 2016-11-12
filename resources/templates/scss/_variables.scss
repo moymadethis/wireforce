@@ -1,0 +1,279 @@
+
+/*------------------------------------*\
+    #PALETTES
+\*------------------------------------*/
+
+/**
+ * Greyscale.
+ */
+
+$black 						: rgb(0,0,0);
+$white 						: rgb(255,255,255);
+
+$grey-darker				: rgb(29,35,38);
+$grey-dark					: rgb(43,52,56);
+$grey						: rgb(60,68,72);
+$grey-light					: rgb(128,148,157);
+$grey-lighter				: rgb(230,234,235);
+
+
+/**
+ * Primary (sky blue).
+ */
+ 
+$color-primary-darker		: rgb(183,66,22);
+$color-primary-dark			: rgb(206,75,24);
+$color-primary				: rgb(229,83,27);
+$color-primary-light		: rgb(234,117,73);
+$color-primary-lighter 		: rgb(250,221,209);
+
+/**
+ * Secondary (navy blue).
+ */
+ 
+$color-secondary-darker		: rgb(37,128,204);
+$color-secondary-dark		: rgb(41,144,229);
+$color-secondary			: rgb(46,160,255);
+$color-secondary-light		: rgb(88,179,255);
+$color-secondary-lighter	: rgb(213,236,255);
+
+
+/**
+ * Useful alert colours (traffic light).
+ */
+
+$red-darker					: rgb(168,33,53);
+$red-dark					: rgb(189,37,59);
+$red						: rgb(210,41,66);
+$red-light					: rgb(219,84,104);
+$red-lighter				: rgb(246,212,217);
+
+$yellow-darker				: rgb(200,156,16);
+$yellow-dark				: rgb(225,175,18);
+$yellow						: rgb(250,195,20);
+$yellow-light				: rgb(251,207,67);
+$yellow-lighter				: rgb(254,243,208);
+
+$green-darker				: rgb(142,146,63);
+$green-dark					: rgb(160,165,71);
+$green						: rgb(178,183,79);
+$green-light				: rgb(193,197,114);
+$green-lighter				: rgb(240,241,220);
+
+
+
+
+
+/*------------------------------------*\
+    #BASICS
+\*------------------------------------*/
+
+/**
+ * Body styles.
+ */
+
+$body-color		: $white;
+$text-color		: $grey-light;
+
+/**
+ * Margins/spacing.
+ */
+ 
+$baseline		: 20px;
+$gutter			: 20px;
+
+
+
+
+
+/*------------------------------------*\
+    #TYPOGRAPHY
+\*------------------------------------*/
+
+/**
+ * Base type styles.
+ */
+
+$font-family			: "Open Sans", Helvetica, Arial, sans-serif;
+$font-size				: 16;
+$font-lineheight		: 1.6em;
+
+/**
+ * Headings.
+ */
+
+$heading-font-family 	: inherit;
+$heading-font-weight 	: 700;
+$heading-font-color 	: $grey-dark;
+
+/**
+ * Alt fonts.
+ */
+
+$alt-font-family: Cambria, Georgia, Times, "Times New Roman";
+
+/**
+ * Extra type variables
+ */ 
+
+$code-font-family		: Monaco, Courier New, monospace;
+$code-font-color		: $color-secondary;
+
+
+
+
+
+/*------------------------------------*\
+    #COLOUR
+\*------------------------------------*/
+
+/**
+ * Base.
+ */
+
+$base-color 		: $color-secondary;
+
+/**
+ * Texture.
+ */
+ 
+$border-color    	: $grey;
+
+/**
+ * Links.
+ */
+
+$link-color			: $color-primary;
+$link-color-hover 	: $grey-dark;
+$link-color-visited : $link-color;
+$link-color-focus 	: $link-color-hover;
+
+
+
+
+
+/*------------------------------------*\
+    #TEXTURE
+\*------------------------------------*/
+
+/**
+ * Alert base styles.
+ */
+
+$alert-bg 					: $grey-light;
+$alert-border-color			: darken($grey-light,5%);
+$alert-border-width 		: 2px;
+$alert-border-style 		: solid;
+$alert-color				: $grey-lighter;
+
+/**
+ * Error alerts.
+ */
+ 
+$alert-error-bg				: $red;
+$alert-error-border-color	: $red-dark;
+$alert-error-color			: $red-lighter;
+
+/**
+ * Info alerts.
+ */
+ 
+$alert-info-bg 				: $color-primary;
+$alert-info-border-color  	: $color-primary-dark;
+$alert-info-color 			: $color-primary-lighter;
+
+/**
+ * Success alerts.
+ */
+ 
+$alert-success-bg 			: $green;
+$alert-success-border-color : $green-dark;
+$alert-success-color 		: $green-lighter;
+
+
+
+
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+/**
+ * Base button styles.
+ */
+
+$btn-bg							: $grey-dark;
+$btn-color 						: $white;
+$btn-border-color 				: darken($grey-dark,5%);
+$btn-border-width				: 2px;
+$btn-border-style				: solid;
+
+$btn-bg-hover					: darken($btn-bg,5%);
+$btn-border-color-hover			: darken($btn-border-color,5%);
+
+/**
+ * Primary button styles.
+ */
+
+$btn-primary-bg					: $color-primary;
+$btn-primary-border-color		: darken($color-primary,5%);
+
+$btn-primary-bg-hover			: darken($btn-primary-bg,5%);
+$btn-primary-border-color-hover	: darken($btn-primary-border-color,5%);
+
+/**
+ * Neutral (grey) button styles.
+ */
+
+$btn-neutral-bg					: $grey-light;
+$btn-neutral-border-color		: darken($grey-light,5%);
+
+$btn-neutral-bg-hover			: darken($btn-neutral-bg,5%);
+$btn-neutral-border-color-hover	: darken($btn-neutral-border-color,5%);
+
+
+
+
+
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+
+/**
+ * Base table styles.
+ */
+
+$table-bg 				: transparent;
+$table-stripe 			: $grey-lighter;
+$table-hover 			: darken($table-stripe,5%);
+$table-border 			: $white;
+$table-border-width		: 2px;
+$table-border-style		: solid;
+
+
+
+
+
+/*------------------------------------*\
+    #FORMS
+\*------------------------------------*/
+
+/**
+ * Inputs.
+ */
+
+$input-bg 				: $white;
+$input-border 			: $grey;
+$input-border-width		: 2px;
+$input-border-style		: solid;
+$input-hover 			: darken($input-border,10%);
+$input-focus  			: darken($input-border,20%);
+$input-color			: $text-color;
+$input-shadow			: inset 3px 3px 0 $grey-lighter;
+
+/**
+ * Placeholders.
+ */
+ 
+$placeholder-color 	: $grey-light;
+

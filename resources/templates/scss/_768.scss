@@ -1,0 +1,160 @@
+
+/*------------------------------------*\
+    #FORMS
+\*------------------------------------*/
+
+/**
+ * Horizontally align form labels (titles) and inputs within `form-group` items.
+ */
+
+.form-horz {
+
+	.form-group__title {
+		float: left;
+		text-align: right;
+		position: relative;
+		width: 30%;
+		
+		.required {
+			position: absolute;
+			top: 0;
+			right: -12px;
+		}
+	}
+	
+	.form-group__controls,
+	.error__text {
+		margin-left: 35%;
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    #NAVIGATION
+\*------------------------------------*/
+
+/**
+ * Hide mobile (expand/collapsable) navigation but only display icons on links
+ * to reduce horizontal space. Extend (show text) in _992.scss.
+ *
+ * 1. Overwrite widths set in _page.scss which are required for mobile nav.
+ */
+
+.site-nav__list {
+	float: right;
+	margin-top: -$baseline;
+	width: auto;  /* [1] */
+}
+
+.site-nav__item {
+	float: left;
+	width: auto; /* [1] */
+}
+
+/**
+ * 1. Overwrite styles in _page.scss required for responsive-nav.js.
+ */
+
+.site-nav__list {
+	overflow: visible; /* [1] */
+	position: relative; /* [1] */
+	
+	&.closed {
+		max-height: none; /* [1] */
+	}
+}
+
+.site-nav__link {
+	padding: $baseline*1.5 $baseline;
+}
+
+/**
+ * Hide toggle.
+ */
+ 
+#site-nav__toggle {
+	display: none;
+}
+
+
+
+
+.page-head__caption {
+	padding: 0 0 0 $baseline*3;
+	width: 60%;
+}
+
+.form-quote {
+	
+	.form-group {
+		width: 33.333%;
+	}
+}
+
+
+.page-foot__sitemap,
+.page-foot__resources,
+.page-foot__contact {
+	clear: none;
+	float: left;
+	width: 33.33333%;
+}
+
+
+
+
+
+
+
+.feature-quote {
+	display: flex;
+}
+
+.feature-quote__text {
+	flex: 0 1 auto;		// Fixes quote text cutting off. IE10 and IE11 default values for flex are 0 0 auto rather than 0 1 auto, as per the draft spec, as of September 2013.
+	order: 2;
+	width: 66.66666%;
+}
+	
+.feature-quote__cite {
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	order: 1;
+	margin-top: 0;
+	padding-right: 30px;
+	width: 33.33333%;
+}
+
+.feature-quote__avatar {
+	flex-shrink: 0; // Stops image from being squashed in IE11
+	height: 75px;
+	width: 75px;	
+}
+
+.no-flexbox {
+	
+	.feature-quote {
+		margin: 0 auto $baseline;
+		max-width: 800px;
+	}
+	
+	.feature-quote__text,
+	.feature-quote__cite {
+		text-align: center;
+		width: 100%;
+	}
+	
+	.feature-quote__cite {
+		
+		p {
+			text-align: left;
+		}
+	}
+}
+
+
+

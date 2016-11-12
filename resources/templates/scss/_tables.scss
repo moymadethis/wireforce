@@ -1,0 +1,170 @@
+
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+
+/**
+ * Default `table` styling. These default rules can be extended with a
+ * `.table-*` skin class.
+ *
+ * 1. `calc` is not interpreted correctly in IE9 when set on a `display: table`
+ *    element. So I've used the `\9` hack so 100% is only set on IE9 and below.
+ * 2. To ensure even spacing in each table-cell margin-bottom is remove from any
+ *    last element.
+ */
+
+table {
+	background-color: $table-bg;
+	border-collapse: separate;
+	border-spacing: 0 2px;
+	margin: -2px -2px $baseline;
+	table-layout: fixed;
+	//max-width: 100%;
+	width: calc(100% + 4px);
+	width: 100%\9; /* [1] */
+	
+	:last-child { /* [2] */
+		margin-bottom: 0;
+	}
+}
+
+th,
+td {
+	@include font-size(14);
+	line-height: $font-lineheight;
+	padding: 15px 20px;
+	text-align: left;
+	vertical-align: top;
+}
+
+/**
+ * 1. If a table has sortable columns you can add a visual hint to this by
+ *    adding up/down arrows.
+ * 2. ...then show whether ascending/descending ordering is active by adding an
+ *    additional `.ascending` or `.descending` class.
+ * 3. Change vertical alignment to keep up/down arrows consistently alongside
+ *    text when it wraps. When aligned to the bottom sometimes arrows float in
+ *    white space if the text wraps by different amounts in each `th`.
+ */
+
+th {
+	color: $heading-font-color;
+	font-weight: 600;
+	
+	thead & {
+		@include font-size(16);
+		padding-top: 0;
+		vertical-align: bottom;
+	}
+	
+	&.order { /* [1] */
+		background: url(../img/sprite/table-order.png) no-repeat 20px -94px;
+		cursor: pointer;
+		padding-left: 35px;
+		vertical-align: top; /* [3] */
+	}
+		
+	&.order--ascending 	{background-position: 20px 6px;} 	/* [2] */
+	&.order--descending {background-position: 20px -194px;}  /* [2] */
+}
+
+td {
+	background-color: $table-stripe;
+	transition: background .25s;
+}
+
+/**
+ * Table row 'hover' styling.
+ */
+
+tbody td,
+tbody th {
+	transition: background-color .25s 0 linear;
+}
+
+tbody > tr:hover > td,
+tbody > tr:hover > th {
+	background-color: $table-hover;
+}
+
+
+/**
+ * Use `.table-condensed` to reduce cell padding for tighter layouts.
+ */
+
+.table-condensed {
+
+	th,
+	td {
+		padding: 5px 20px;
+		
+		thead & {
+			padding-top: 0;
+		}
+	}
+}
+
+
+/**
+ * Use `.table-bordered` to add a border to every edge of the table/cells.
+ */
+
+.table-bordered {
+	border-spacing: 2px;
+}
+
+
+/**
+ * Use `.table-inverted` to change cell background-color to white. Mainly used
+ * when a table is placed within in a light grey `.boxout` element to make cell
+ * backgrounds visible again.
+ */
+
+.table-inverted {
+	
+	tbody {
+		
+		th,
+		td {
+			background: $white;
+		}
+	}
+	
+	tbody > tr:hover td,
+	tbody > tr:hover th {
+		background-color: darken($white,1%);
+	}
+}
+
+
+/**
+ * Use `.table-striped` to add a background to table cells but only those within
+ * 'odd' table rows to create a striped effect.
+ */
+
+.table-striped {
+
+	tbody tr:nth-child(odd) td,
+	tbody tr:nth-child(odd) th {
+		background-color: $table-stripe;
+	}
+}
+
+
+
+
+
+/*
+
+table {
+	
+	td {
+		display: block;
+		padding: $baseline/2 $baseline 0;
+		
+		&:last-child {
+			padding-bottom: $baseline/2;
+		}
+	}
+}
+*/

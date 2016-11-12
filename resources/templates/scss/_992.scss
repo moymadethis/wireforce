@@ -1,0 +1,117 @@
+
+/*------------------------------------*\
+    #GRIDS
+\*------------------------------------*/
+
+/**
+ * Use the `.grid` object to display content in (multiple) column layouts.
+ * Extend this object with a `.grid--*` skin class to change it's appearance.
+ *
+ * 1. A left margin of -20px is set to accommodate `padding-left: 20px;` which
+ *    is set on each `grid__item` object. This aligns the left-most edge to the
+ *    reset of the page content.
+ */
+
+.grid {
+	@include clearfix;
+	margin: 0 0 0 -20px; /* [1] */
+}
+
+/**
+ * Each `.grid` column object must have a class of `.grid__item`. The width of
+ * each item is set using a width extended in the #WIDTHS section.
+ */
+
+.grid__item {
+	box-sizing: border-box;
+	float: left;
+	padding-left: 20px; /* [1] */
+}
+
+
+
+
+
+/*------------------------------------*\
+    #WIDTHS
+\*------------------------------------*/
+
+/**
+ * A set of width classes that can be used throughout the website but are mainly
+ * used to set the column widths on `.grid` objects.
+ */
+
+.one-half,
+.two-quarters 	{width: 50%;}
+
+.one-third 		{width: 33.33333%;}
+.two-thirds 	{width: 66.66666%;}
+
+.one-quarter 	{width: 25%;}
+.three-quarters {width: 75%;}
+
+
+
+.feature-list__item {
+	width: 25%;
+	
+	&:nth-child(odd) {
+		clear: none;
+	}
+	
+	&:nth-child(4n+1) {
+		clear: left;
+	}
+}
+
+
+
+
+
+
+.page-foot__about {
+	float: left;
+	padding-right: $baseline;
+	width: 50%;
+}
+
+.page-foot__sitemap,
+.page-foot__resources {
+	width: 15%;
+}
+
+.page-foot__contact {
+	width: 20%;
+}
+
+
+
+
+/*------------------------------------*\
+    #ARTICLES
+\*------------------------------------*/
+
+.featured-projects {
+	
+	.h-entry {
+		padding: 0 $baseline;
+		width: 33.33333%;
+		
+		&:first-child {
+			width: 33.33333%;
+		}
+	}
+}
+
+
+.featured-blog {
+	@include clearfix;
+	margin: 0 0 0 -$baseline;
+	
+	.h-entry {
+		float: left;
+		padding-left: 140px;
+		width: 50%;
+	}
+}
+

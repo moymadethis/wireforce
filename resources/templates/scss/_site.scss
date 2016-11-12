@@ -1,0 +1,59 @@
+
+/*------------------------------------*\
+    #ROOT
+\*------------------------------------*/
+
+/**
+ * Viewports.
+ */
+
+@-webkit-viewport { 
+	width: device-width;
+}
+
+@-moz-viewport { 
+	width: device-width;
+}
+
+@-ms-viewport { 
+	width: device-width;
+}
+
+@-o-viewport { 
+	width: device-width;
+}
+
+@viewport { 
+	width: device-width;
+}
+
+
+/**
+ * Base `html` styling.
+ */
+
+html {
+	background: $white;
+	font-size: 62.5%;
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: lighten($base-color, 75%);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+
+/**
+ * Base `body` styling.
+ */
+
+body {
+	color: $text-color;
+	font-family: $font-family;
+	@include font-size($font-size);
+	font-weight: 400;
+	line-height: $font-lineheight;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+

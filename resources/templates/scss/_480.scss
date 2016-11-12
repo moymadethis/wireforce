@@ -1,0 +1,44 @@
+
+.feature-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.feature-list__item {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	float: left;
+	width: 50%;
+	
+	&:nth-child(odd) {
+		clear: left;
+	}
+}
+
+.feature-list__link {
+	margin-top: auto;
+}
+
+
+
+
+
+.client-list__item {
+	margin: 0 $baseline*2 $baseline;
+}
+
+
+
+
+.form-quote {
+	@include clearfix;
+	margin-left: -$baseline;
+	
+	.form-group {
+		box-sizing: border-box;
+		float: left;
+		padding-left: $baseline;
+		width: 50%;
+	}
+}
