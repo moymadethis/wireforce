@@ -104,6 +104,19 @@
 
 
 
+.js .nav-collapse,
+.js .nav-collapse .dropdown ul {
+    max-height: none;
+    overflow: visible;
+    position: relative;
+}
+.js .nav-collapse.closed,
+.js .nav-collapse.closed .dropdown ul {
+    max-height: none;
+    overflow: visible;
+}
+
+
 
 .page-head__caption {
 	padding: 0 0 0 $baseline*3;
