@@ -31,8 +31,7 @@
  
 .alert {
 	background-color: $alert-bg;
-	border-bottom: 3px $alert-border-style $alert-border-color;
-	box-shadow: 3px 3px 0 rgba($black,.05);
+	border-bottom: 4px $alert-border-style $alert-border-color;
 	clear: both;
 	color: $alert-color;
 	font-family: $font-family;
@@ -46,11 +45,10 @@
 	}
 	
 	a { /* [1] */
-		color: $grey-dark;
 		font-weight: 600;
 		
 		&:visited {
-			color: $grey-dark;
+			color: $link-color;
 		}
 		
 		&:hover,
@@ -72,16 +70,27 @@
  * Skin for success/info/error alerts. Extends `.alert`.
  */
 
+.alert--success,
+.alert--error {
+	
+	a {
+		color: $grey-darker;
+		
+		&:visited {
+			color: $grey-darker;
+		}
+		
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+	}
+}
+
 .alert--success {
 	background: $alert-success-bg;
 	border-color: $alert-success-border-color;
 	color: $alert-success-color;
-}
-
-.alert--info {
-	background: $alert-info-bg;
-	border-color: $alert-info-border-color;
-	color: $alert-info-color;
 }
 
 .alert--error {
@@ -95,15 +104,6 @@
  *
  * 1. Depending on the type of alert (default/info/success/error) an icon is
  *    display alongside the title. Extends `.icon--*` in _fontello.scss.
- * 2. You can display the entire message within the `.alert__title` provided it
- *    isn't too long. If you do this, you might want to reduce the size/lighten
- *    some of the text. To do this wrap the relevant text in a `span`.
- * 3. Any `.btn` displayed inline also gets some special attention for vertical
- *    alignment.
- * 4. Added padding so I could move icon into space with a negative margin. This
- *    is for when a long like of text (2) is within the title it stops content
- *    running under the icon which is a problem when it's a `.flag` or `.btn`
- *    object.
  */
 
 .alert__title {
@@ -114,26 +114,26 @@
 	padding-left: 35px; /* [4] */
 	
 	&:before { /* [1] */
+		color: darken($alert-bg,15%);
 		font-size: 140%;
 		margin: 0 $baseline/2 0 -35px; /* [4] */
-		opacity: .75;
-		top: 2px;
 		position: relative;
+		top: 2px;
+		text-shadow: 0 1px 1px rgba($white,.10);
 	}
 	
-	span { /* [2] */
-		color: $alert-bg;
-		@include font-size($font-size);
-		font-weight: 400;
+	.alert--success & {
 		
-		.alert--success & 	{color: $alert-success-color;}
-		.alert--info & 		{color: $alert-info-color;}
-		.alert--error & 	{color: $alert-error-color;}
+		&:before {
+			color: darken($alert-success-bg,15%);
+		}
 	}
 	
-	.btn { /* [3] */
-		margin: -2px 0 0 $baseline/4;
-		vertical-align: middle;
+	.alert--error & {
+		
+		&:before {
+			color: darken($alert-error-bg,15%);
+		}
 	}
 }
 
@@ -147,7 +147,6 @@
 	margin: 2px 0 $baseline/4 $baseline/2;
 	
 	.alert--success & 	{background-position: 0 -40px;}
-	.alert--info & 		{background-position: 0 -60px;}
 	.alert--error & 	{background-position: 0 -80px;}
 }
 

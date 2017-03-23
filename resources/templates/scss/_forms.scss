@@ -26,10 +26,10 @@ form {
  */
 	
 fieldset {
-	background: $grey-lighter;
+	background: lighten($grey-lighter,5%);
 	border-width: 0;
 	box-sizing: border-box;
-	margin-bottom: 4px;
+	margin-bottom: 2px;
 	padding: $baseline $baseline 0;
 	width: 100%;
 	*width: auto;
@@ -180,12 +180,10 @@ label {
  * Default textfield & textarea styling.
  *
  * 1. Removes default iOS input shadow.
- * 2. Textfield/areas have a default width of 100% but we have some handy preset
- *    classes that can be applied to set fixed (smaller) widths.
  */
 
 textarea,
-.textfield {
+.text-input {
 	background-color: $input-bg;
 	box-shadow: $input-shadow;
 	box-sizing: border-box;
@@ -210,9 +208,6 @@ textarea,
 		outline: 0;
 		outline: thin dotted \9;
 	}
-	
-	&.input-mini 	{width: 65px;}	/* [2] */
-	&.input-small	{width: 100px;} /* [2] */
 }
 
 textarea {

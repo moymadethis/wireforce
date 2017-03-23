@@ -3,9 +3,9 @@
     #HELPERS
 \*------------------------------------*/
 
-.align-center {
-	text-align: center;
-}
+.align-left 	{text-align: left;}
+.align-center 	{text-align: center;}
+.align-right	{text-align: right;}
 
 
 
@@ -15,24 +15,8 @@
     #OBJECTS/WRAPPERS
 \*------------------------------------*/
 
-/**
- * The `.section` wrapper for horizintal groups of content. Almost always
- * contains direct child of `.wrap` to center content, set with a max-width.
- * 
- * The `section` div has two different states:
- *
- * 1) A grey background and border
- * 2) A white background and border
- *
- * 1. While styling for each state is similar, depending on how they're stacked
- *    borders and vertical padding is reduced/removed. For example, if the same
- *    states are stacked on top of each other we remove the `border-top` and
- *    `padding-top` on the following `.section` to remove excess vertical space.
- * 2. And add the border/padding on again if it's an alternate `.section`.
- */
-
 .band {
-	padding: $baseline*3 0;
+// 	padding: $baseline*3 0;
 }
 
 .band--tint {
@@ -65,6 +49,19 @@
 	.amp {
 		color: $white;
 	}
+	
+	.btn {
+		color: $white;
+		
+		&:visited {
+			color: $white;
+		}
+		
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+	}
 }
 
 .band--primary {
@@ -92,18 +89,22 @@
 	@include clearfix;
 	box-sizing: border-box;
 	margin: 0 auto;
-	padding: $baseline*2 $baseline $baseline;
+	padding: $baseline*5 $baseline $baseline*4;
 	width: 100%;
 	max-width: 1200px;
-	
-	.page-head & {
-		padding: 0 $baseline;
-	}
 	
 	.page-head &,
 	.page-foot & {
 		position: relative;
 		z-index: 1;
+	}
+	
+	.page-head & {
+		padding: 0 $baseline;
+	}
+	
+	.page-foot & {
+		padding-bottom: $baseline*2;
 	}
 }
 
@@ -134,6 +135,12 @@
 		left: 0;
 		width: 100%;
 		z-index: 0;
+	}
+	
+	h1,
+	h2,
+	h3 {
+		color: $white;
 	}
 }
 
@@ -258,6 +265,85 @@
 
 
 
+/*------------------------------------*\
+    #PAGE-NAV
+\*------------------------------------*/
+
+.page-nav__title {
+	@include font-size(16);
+	margin-bottom: $baseline;
+}
+
+.page-nav__list {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+.page-nav__item {
+	background: none;
+	margin-bottom: 0;
+	padding-left: 0;
+}
+
+.page-nav__link {
+	background: lighten($grey-lighter,5%);
+	display: block;
+	margin-bottom: 2px;
+	position: relative;
+	padding: $baseline/2 $baseline*2;
+	transition: color .15s;
+	
+	&:before,
+	&:after {
+		color: darken($grey-lighter,10%);					
+		content: "\203a\00fe0e";
+		display: inline-block;
+		font-family: $font-family;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 14px;
+		position: absolute;
+		top: 14px;
+		left: $baseline;
+		transition: opacity .15s ease-out;
+	}
+	
+	&:after {
+		color: $color-primary;
+		left: $baseline/2;
+		opacity: 0;
+		transition-property: all;
+	}
+	
+	&:hover {
+		
+		&:after {
+			opacity: 1;
+			left: 5px;
+		}
+	}
+	
+	&:hover,
+	&:focus {
+			    
+	    &:before {
+		    opacity: 0;
+	    }
+	    
+	    &:after {
+		    left: $baseline;
+		    opacity: 1;
+	    }
+	}
+	
+	&.current {
+		color: $grey-darker;
+		font-style: italic;
+	}
+}
+
 
 /*------------------------------------*\
     #FOOTER
@@ -269,7 +355,8 @@
  
 .page-foot {
 	background: $grey-dark url(../img/interface/bg-tile.png) 0 0;
-	padding-top: $baseline;
+	@include font-size(14);
+	line-height: $font-lineheight;
 	position: relative;
 	
 	&:before {
@@ -285,6 +372,15 @@
 	
 	p {
 		@include font-size(14);
+	}
+	
+	ul {
+		padding-left: 0;
+	}
+	
+	li {
+		background: none;
+		padding-left: 0;
 	}
 	
 	a {
@@ -305,6 +401,69 @@
 	display: block;
 	margin-bottom: $baseline/2;
 }
+
+.page-foot__title {
+	@include font-size(14);
+}
+
+.page-foot__item {
+	@include clearfix;
+	margin-bottom: $baseline;
+}
+
+.page-foot__item--sitemap,
+.page-foot__item--resources {
+	float: left;
+	width: 50%;
+}
+
+.page-foot__item--contact {
+	clear: left;
+}
+
+
+
+.page-foot__legal {
+	clear: both;
+	margin: 0;
+	padding-top: $baseline*1.5;
+	
+	li {
+		display: inline-block;
+		margin-right: $baseline/4;
+		
+		&:before {
+			content: "\00b7";
+			margin-right: $baseline/2;
+		}
+	}
+	
+	.copyright {
+		display: block;
+			
+		&:before {
+			display: none;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .feature-list {
@@ -334,7 +493,7 @@
 	
 	&:after {
 		color: $link-color-hover;
-		content:"\203a";
+		content:"\203a\00fe0e";
 		font-style: normal;
 		opacity: 0;
 		position: relative;
@@ -374,8 +533,9 @@
 		display: none;
 	}
 	
-	.textfield {
+	.text-input {
 		background: $grey-darker;
+		border-color: $grey;
 		box-shadow: inset 3px 3px 0 darken($grey-darker,2%);
 		color: $white;
 		
@@ -385,6 +545,25 @@
 	
 	.btn {
 		width: 100%;
+	}
+}
+
+.form-quote__text {
+	font-style: italic;
+	text-align: center;
+	
+	a {
+		color: $white;
+		@include font-size(20);
+		
+		&:visited {
+			color: $white;
+		}
+		
+		&:hover,
+		&:focus {
+			color: $link-color;
+		}
 	}
 }
 
@@ -401,63 +580,6 @@
 
 
 
-.page-foot {
-	@include font-size(14);
-	line-height: $font-lineheight;
-	
-	ul {
-		padding-left: 0;
-	}
-	
-	li {
-		background: none;
-		padding-left: 0;
-	}
-}
-
-.page-foot__title {
-	@include font-size(14);
-}
-
-.page-foot__item {
-	@include clearfix;
-	margin-bottom: $baseline;
-}
-
-.page-foot__item--sitemap,
-.page-foot__item--resources {
-	float: left;
-	width: 50%;
-}
-
-.page-foot__item--contact {
-	clear: left;
-}
-
-
-
-.page-foot__legal {
-	clear: both;
-	margin: 0;
-	
-	li {
-		display: inline-block;
-		margin-right: $baseline/4;
-		
-		&:before {
-			content: "\00b7";
-			margin-right: $baseline/2;
-		}
-	}
-	
-	.copyright {
-		display: block;
-			
-		&:before {
-			display: none;
-		}
-	}
-}
 
 
 
@@ -475,6 +597,7 @@
 .social-list {
 	
 	li {
+		display: inline-block;
 		margin-right: $baseline/4;
 	}
 	
@@ -516,6 +639,13 @@
 \*------------------------------------*/
 
 .h-feed {
+	padding-left: 0;
+	
+	> li {
+		background: none;
+		padding-left: 0;
+		margin-bottom: $baseline;
+	}
 	
 	.p-name {
 		@include font-size(16);

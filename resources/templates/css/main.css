@@ -15,9 +15,6 @@
  * Primary (sky blue).
  */
 /**
- * Secondary (navy blue).
- */
-/**
  * Useful alert colours (traffic light).
  */
 /*------------------------------------*\
@@ -64,9 +61,6 @@
  */
 /**
  * Error alerts.
- */
-/**
- * Info alerts.
  */
 /**
  * Success alerts.
@@ -286,7 +280,7 @@ p {
  * Styling for a leading paragraphs.
  */
 .lead {
-  color: #9dacb3;
+  color: #bac5c9;
   font-size: 20px;
   font-size: 2rem;
   font-style: italic;
@@ -317,7 +311,7 @@ li {
 ul {
   list-style: none; }
   ul > li {
-    background: url(../img/interface/bullet.png) no-repeat left 8px;
+    background: url(../img/interface/bullet.png) no-repeat left 10px;
     padding-left: 15px; }
     .alert ul > li {
       background-image: url(../img/interface/bullet-white.png);
@@ -337,24 +331,12 @@ li ol {
   padding: 0; }
   .list-bordered li {
     background: none;
-    border-bottom: 2px solid #3c4448;
+    border-bottom: 2px solid #e6eaeb;
     margin-bottom: 10px;
     padding: 0 0 10px; }
     .list-bordered li:last-child {
       border-bottom: 0;
       padding-bottom: 0; }
-
-/**
- * Display list-items inline with a margin-right for spacing. Background-image
- * is removed.
- */
-.list-inline {
-  padding-left: 0; }
-  .list-inline li {
-    background: none;
-    display: inline-block;
-    margin-right: 20px;
-    padding-left: 0; }
 
 /*------------------------------------*\
     #DEFINITION LISTS
@@ -369,7 +351,7 @@ dd {
 
 dt {
   color: #2b3438;
-  font-weight: bold; }
+  font-weight: 600; }
 
 /**
  * Inline definition list.
@@ -412,14 +394,13 @@ cite {
  * Base styling for `blockquote` element.
  */
 blockquote {
-  margin: 20px 0 40px;
-  padding: 0 40px 0 60px;
-  text-align: center; }
+  margin: 40px 0;
+  padding: 0 60px; }
   blockquote p {
     color: #faddd1;
+    color: #1d2326;
     font-size: 24px;
     font-size: 2.4rem;
-    font-weight: 300;
     line-height: 1.28em; }
   blockquote > p:first-child:before, blockquote > p:last-of-type:after {
     background: url(../img/interface/quotemarks.png) no-repeat left top;
@@ -443,15 +424,20 @@ blockquote {
  * Base styling for `blockquote` element.
  */
 .feature-quote {
-  margin-bottom: 20px;
-  padding-top: 5px;
-  text-align: left; }
+  margin: 20px 0 0;
+  padding-top: 5px; }
+  .feature-quote p {
+    color: #faddd1;
+    font-weight: 300; }
 
 .feature-quote footer p {
   font-size: 14px;
   font-size: 1.4rem;
   margin-bottom: 0;
-  flex: 0 1 auto; }
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto; }
   .feature-quote footer p .amp {
     font-size: 16px;
     font-size: 1.6rem;
@@ -463,8 +449,14 @@ blockquote {
   vertical-align: middle; }
 
 .feature-quote__cite {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 20px; }
 
 .feature-quote__avatar {
@@ -486,7 +478,7 @@ address {
   margin-bottom: 20px; }
 
 abbr[title] {
-  border-bottom: 1px dotted #3c4448;
+  border-bottom: 1px dotted #e6eaeb;
   cursor: help; }
 
 dfn {
@@ -535,7 +527,7 @@ pre {
   word-wrap: break-word; }
 
 code {
-  color: #2ea0ff; }
+  color: #9bcf17; }
 
 /*
  * Superscript/subscript.
@@ -611,23 +603,32 @@ sub {
 /**
  * Classes needed to add relative icons.
  */
-.icon--facebook:before {
+.icon--phone:before {
   content: '\e800'; }
 
-.icon--twitter:before {
+.icon--mail:before {
   content: '\e801'; }
 
-.icon--google:before {
+.icon--help:before {
   content: '\e802'; }
 
-.icon--linkedin:before {
+.icon--happy:before {
   content: '\e803'; }
 
-.icon--mail:before {
+.icon--sad:before {
   content: '\e804'; }
 
-.icon--phone:before {
+.icon--facebook:before {
   content: '\e805'; }
+
+.icon--twitter:before {
+  content: '\e806'; }
+
+.icon--google:before {
+  content: '\e807'; }
+
+.icon--linkedin:before {
+  content: '\e808'; }
 
 /*------------------------------------*\
     #COLOUR
@@ -644,7 +645,8 @@ sub {
 a {
   color: #e5531b;
   text-decoration: none;
-  transition: color .25s; }
+  -webkit-transition: color .25s;
+          transition: color .25s; }
   a:visited {
     color: #e5531b; }
   a:hover {
@@ -660,12 +662,12 @@ a {
  */
 ::-moz-selection {
   background-color: white;
-  color: #2ea0ff;
+  color: #e5531b;
   text-shadow: none; }
 
 ::selection {
   background-color: white;
-  color: #2ea0ff;
+  color: #e5531b;
   text-shadow: none; }
 
 /*------------------------------------*\
@@ -706,7 +708,8 @@ a {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all .25s;
+  -webkit-transition: all .25s;
+          transition: all .25s;
   vertical-align: middle; }
   .btn:before {
     /* [1] */
@@ -803,11 +806,14 @@ a {
   margin: 0 0 10px 10px;
   overflow: hidden;
   text-indent: -9999px;
-  transition: all .25s ease-in;
+  -webkit-transition: all .25s ease-in;
+          transition: all .25s ease-in;
   width: 20px; }
   .btn-close:hover {
     background-color: rgba(255, 255, 255, 0.25);
-    transform: rotate(90deg); }
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg); }
 
 /**
  * Figures, images and other elements.
@@ -820,7 +826,7 @@ a {
  */
 hr {
   border: 0;
-  border-top: 1px solid #3c4448;
+  border-top: 1px solid #e6eaeb;
   border-bottom: 1px solid white;
   display: block;
   height: 1px;
@@ -880,10 +886,10 @@ form {
  * 1. Remove bottom margin from the last fieldset for consistent spacing.
  */
 fieldset {
-  background: #e6eaeb;
+  background: #f4f6f6;
   border-width: 0;
   box-sizing: border-box;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   padding: 20px 20px 0;
   width: 100%;
   *width: auto; }
@@ -936,17 +942,17 @@ fieldset {
     .form-group.error .form-group__title,
     .form-group.error .error__text,
     .form-group.error .required {
-      color: #d22942; }
+      color: #cf173f; }
     .form-group.error textarea,
     .form-group.error .textfield {
-      border-color: #bd253b;
-      background-color: #f6d1d6;
-      box-shadow: inset 2px 2px 0 #eea6b1;
-      color: #d22942; }
+      border-color: #b81438;
+      background-color: #f7bbc8;
+      box-shadow: inset 2px 2px 0 #f28da3;
+      color: #cf173f; }
     .form-group.error ::-webkit-input-placeholder {
-      color: #e57c8b; }
+      color: #ed5f7e; }
     .form-group.error ::-moz-placeholder {
-      color: #e57c8b; }
+      color: #ed5f7e; }
 
 /**
  * Extends `.form-group` for more control over groups of buttons usually located
@@ -1016,15 +1022,13 @@ label {
  * Default textfield & textarea styling.
  *
  * 1. Removes default iOS input shadow.
- * 2. Textfield/areas have a default width of 100% but we have some handy preset
- *    classes that can be applied to set fixed (smaller) widths.
  */
 textarea,
-.textfield {
+.text-input {
   background-color: white;
-  box-shadow: inset 3px 3px 0 #e6eaeb;
+  box-shadow: inset 3px 3px 0 #f4f6f6;
   box-sizing: border-box;
-  border: 2px solid #3c4448;
+  border: 2px solid #e6eaeb;
   color: #80949d;
   display: inline-block;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -1032,26 +1036,19 @@ textarea,
   line-height: 40px;
   margin-bottom: 10px;
   padding: 0 10px;
-  transition: border-color .25s;
+  -webkit-transition: border-color .25s;
+          transition: border-color .25s;
   width: 100%;
   -webkit-appearance: none;
-  /* [1] */
-  /* [2] */
-  /* [2] */ }
+  /* [1] */ }
   textarea:hover,
-  .textfield:hover {
-    border-color: #252a2c; }
+  .text-input:hover {
+    border-color: #cad2d4; }
   textarea:focus,
-  .textfield:focus {
-    border-color: #0e0f10;
+  .text-input:focus {
+    border-color: #adbabe;
     outline: 0;
     outline: thin dotted \9; }
-  textarea.input-mini,
-  .textfield.input-mini {
-    width: 65px; }
-  textarea.input-small,
-  .textfield.input-small {
-    width: 100px; }
 
 textarea {
   height: auto;
@@ -1125,7 +1122,7 @@ table {
   background-color: transparent;
   border-collapse: separate;
   border-spacing: 0 2px;
-  margin: -2px -2px 20px;
+  margin: -2px -2px 22px;
   table-layout: fixed;
   width: calc(100% + 4px);
   width: 100% \9;
@@ -1136,10 +1133,10 @@ table {
 
 th,
 td {
-  font-size: 14px;
-  font-size: 1.4rem;
+  font-size: 13px;
+  font-size: 1.3rem;
   line-height: 1.6em;
-  padding: 15px 20px;
+  padding: 10px;
   text-align: left;
   vertical-align: top; }
 
@@ -1154,91 +1151,40 @@ td {
  */
 th {
   color: #2b3438;
-  font-weight: 600;
-  /* [2] */
-  /* [2] */ }
+  font-weight: 600; }
   thead th {
-    font-size: 16px;
-    font-size: 1.6rem;
+    font-size: 14px;
+    font-size: 1.4rem;
     padding-top: 0;
     vertical-align: bottom; }
-  th.order {
-    /* [1] */
-    background: url(../img/sprite/table-order.png) no-repeat 20px -94px;
-    cursor: pointer;
-    padding-left: 35px;
-    vertical-align: top;
-    /* [3] */ }
-  th.order--ascending {
-    background-position: 20px 6px; }
-  th.order--descending {
-    background-position: 20px -194px; }
 
-td {
-  background-color: #e6eaeb;
-  transition: background .25s; }
+tbody tr:nth-child(odd) td {
+  background-color: #f4f6f6;
+  -webkit-transition: background .25s;
+          transition: background .25s; }
 
 /**
  * Table row 'hover' styling.
  */
 tbody td,
 tbody th {
-  transition: background-color .25s 0 linear; }
+  -webkit-transition: background-color .25s 0 linear;
+          transition: background-color .25s 0 linear; }
 
 tbody > tr:hover > td,
 tbody > tr:hover > th {
-  background-color: #d8dee0; }
+  background-color: #edf0f1; }
 
 /**
  * Use `.table-condensed` to reduce cell padding for tighter layouts.
  */
 .table-condensed th,
 .table-condensed td {
-  padding: 5px 20px; }
+  padding: 5px 10px; }
   thead .table-condensed th, thead
   .table-condensed td {
     padding-top: 0; }
 
-/**
- * Use `.table-bordered` to add a border to every edge of the table/cells.
- */
-.table-bordered {
-  border-spacing: 2px; }
-
-/**
- * Use `.table-inverted` to change cell background-color to white. Mainly used
- * when a table is placed within in a light grey `.boxout` element to make cell
- * backgrounds visible again.
- */
-.table-inverted tbody th,
-.table-inverted tbody td {
-  background: white; }
-.table-inverted tbody > tr:hover td,
-.table-inverted tbody > tr:hover th {
-  background-color: #fcfcfc; }
-
-/**
- * Use `.table-striped` to add a background to table cells but only those within
- * 'odd' table rows to create a striped effect.
- */
-.table-striped tbody tr:nth-child(odd) td,
-.table-striped tbody tr:nth-child(odd) th {
-  background-color: #e6eaeb; }
-
-/*
-
-table {
-	
-	td {
-		display: block;
-		padding: $baseline/2 $baseline 0;
-		
-		&:last-child {
-			padding-bottom: $baseline/2;
-		}
-	}
-}
-*/
 /**
  * Plug-ins (jQuery-UI, Uniform.js, Fancybox, Flexslider).
  */
@@ -1301,7 +1247,8 @@ input[type="search"]:active {
     overflow: hidden;
     padding: 0 15px 0 10px;
     text-overflow: ellipsis;
-    transition: all .25s;
+    -webkit-transition: all .25s;
+            transition: all .25s;
     white-space: nowrap; }
   .selector:hover span {
     background-color: #3c4448;
@@ -1397,8 +1344,8 @@ input[type="search"]:active {
     width: 100px; }
   .uploader .filename {
     background-color: white;
-    border: 2px solid #3c4448;
-    box-shadow: inset 3px 3px 0 #e6eaeb;
+    border: 2px solid #e6eaeb;
+    box-shadow: inset 3px 3px 0 #f4f6f6;
     box-sizing: border-box;
     color: #80949d;
     cursor: default;
@@ -1550,7 +1497,8 @@ input[type="search"]:active {
   height: 30px;
   position: absolute;
   top: -15px;
-  transition: all .25s;
+  -webkit-transition: all .25s;
+          transition: all .25s;
   right: -15px;
   width: 30px;
   z-index: 8040; }
@@ -1586,7 +1534,8 @@ input[type="search"]:active {
     margin-top: -15px;
     position: absolute;
     top: 50%;
-    transition: all .25s;
+    -webkit-transition: all .25s;
+            transition: all .25s;
     left: -15px;
     width: 30px;
     visibility: hidden;
@@ -1718,11 +1667,10 @@ input[type="search"]:active {
  * 2. Due to updated link styles, `.btn` colours need to be reset.
  */
 .alert {
-  background-color: #80949d;
-  border-bottom: 3px solid #728892;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.05);
+  background-color: #2b3438;
+  border-bottom: 4px solid #20272a;
   clear: both;
-  color: #e6eaeb;
+  color: #98a9b0;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   margin-bottom: 40px;
   padding: 20px 20px 10px; }
@@ -1732,10 +1680,9 @@ input[type="search"]:active {
     margin-bottom: 10px; }
   .alert a {
     /* [1] */
-    color: #2b3438;
     font-weight: 600; }
     .alert a:visited {
-      color: #2b3438; }
+      color: #e5531b; }
     .alert a:hover, .alert a:focus {
       color: white; }
   .alert .btn {
@@ -1747,35 +1694,32 @@ input[type="search"]:active {
 /**
  * Skin for success/info/error alerts. Extends `.alert`.
  */
-.alert--success {
-  background: #b2b74f;
-  border-color: #a0a547;
-  color: #f0f1dc; }
+.alert--success a,
+.alert--error a {
+  color: #1d2326; }
+  .alert--success a:visited,
+  .alert--error a:visited {
+    color: #1d2326; }
+  .alert--success a:hover, .alert--success a:focus,
+  .alert--error a:hover,
+  .alert--error a:focus {
+    color: white; }
 
-.alert--info {
-  background: #e5531b;
-  border-color: #ce4b18;
-  color: #faddd1; }
+.alert--success {
+  background: #9bcf17;
+  border-color: #8ab814;
+  color: #effad2; }
 
 .alert--error {
-  background: #d22942;
-  border-color: #bd253b;
-  color: #f6d4d9; }
+  background: #cf173f;
+  border-color: #b81438;
+  color: #fad2da; }
 
 /**
  * Main title of the alert message.
  *
  * 1. Depending on the type of alert (default/info/success/error) an icon is
  *    display alongside the title. Extends `.icon--*` in _fontello.scss.
- * 2. You can display the entire message within the `.alert__title` provided it
- *    isn't too long. If you do this, you might want to reduce the size/lighten
- *    some of the text. To do this wrap the relevant text in a `span`.
- * 3. Any `.btn` displayed inline also gets some special attention for vertical
- *    alignment.
- * 4. Added padding so I could move icon into space with a negative margin. This
- *    is for when a long like of text (2) is within the title it stops content
- *    running under the icon which is a problem when it's a `.flag` or `.btn`
- *    object.
  */
 .alert__title {
   color: white;
@@ -1787,28 +1731,17 @@ input[type="search"]:active {
   /* [4] */ }
   .alert__title:before {
     /* [1] */
+    color: #0a0c0d;
     font-size: 140%;
     margin: 0 10px 0 -35px;
     /* [4] */
-    opacity: .75;
+    position: relative;
     top: 2px;
-    position: relative; }
-  .alert__title span {
-    /* [2] */
-    color: #80949d;
-    font-size: 16px;
-    font-size: 1.6rem;
-    font-weight: 400; }
-    .alert--success .alert__title span {
-      color: #f0f1dc; }
-    .alert--info .alert__title span {
-      color: #faddd1; }
-    .alert--error .alert__title span {
-      color: #f6d4d9; }
-  .alert__title .btn {
-    /* [3] */
-    margin: -2px 0 0 5px;
-    vertical-align: middle; }
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1); }
+  .alert--success .alert__title:before {
+    color: #678a0f; }
+  .alert--error .alert__title:before {
+    color: #8a0f2a; }
 
 /**
  * Close button. Extends `.btn-close` in _buttons.scss.
@@ -1819,8 +1752,6 @@ input[type="search"]:active {
   margin: 2px 0 5px 10px; }
   .alert--success .alert__close {
     background-position: 0 -40px; }
-  .alert--info .alert__close {
-    background-position: 0 -60px; }
   .alert--error .alert__close {
     background-position: 0 -80px; }
 
@@ -1833,30 +1764,18 @@ input[type="search"]:active {
 /*------------------------------------*\
     #HELPERS
 \*------------------------------------*/
+.align-left {
+  text-align: left; }
+
 .align-center {
   text-align: center; }
+
+.align-right {
+  text-align: right; }
 
 /*------------------------------------*\
     #OBJECTS/WRAPPERS
 \*------------------------------------*/
-/**
- * The `.section` wrapper for horizintal groups of content. Almost always
- * contains direct child of `.wrap` to center content, set with a max-width.
- * 
- * The `section` div has two different states:
- *
- * 1) A grey background and border
- * 2) A white background and border
- *
- * 1. While styling for each state is similar, depending on how they're stacked
- *    borders and vertical padding is reduced/removed. For example, if the same
- *    states are stacked on top of each other we remove the `border-top` and
- *    `padding-top` on the following `.section` to remove excess vertical space.
- * 2. And add the border/padding on again if it's an alternate `.section`.
- */
-.band {
-  padding: 60px 0; }
-
 .band--tint {
   background: #f4f6f6; }
 
@@ -1875,8 +1794,15 @@ input[type="search"]:active {
     color: white; }
   .band--dark .amp {
     color: white; }
+  .band--dark .btn {
+    color: white; }
+    .band--dark .btn:visited {
+      color: white; }
+    .band--dark .btn:hover, .band--dark .btn:focus {
+      color: white; }
 
 .band--primary {
+  background: -webkit-linear-gradient(left, #ce4b18 0%, #eb6718 100%);
   background: linear-gradient(to right, #ce4b18 0%, #eb6718 100%);
   color: #ea7549; }
   .band--primary h1,
@@ -1894,7 +1820,7 @@ input[type="search"]:active {
   *zoom: 1;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 40px 20px 20px;
+  padding: 100px 20px 80px;
   width: 100%;
   max-width: 1200px; }
   .wrap:before, .wrap:after {
@@ -1902,11 +1828,13 @@ input[type="search"]:active {
     display: table; }
   .wrap:after {
     clear: both; }
-  .page-head .wrap {
-    padding: 0 20px; }
   .page-head .wrap, .page-foot .wrap {
     position: relative;
     z-index: 1; }
+  .page-head .wrap {
+    padding: 0 20px; }
+  .page-foot .wrap {
+    padding-bottom: 40px; }
 
 /*------------------------------------*\
     #PAGE-HEAD
@@ -1920,6 +1848,7 @@ input[type="search"]:active {
   padding-top: 20px;
   position: relative; }
   .page-head:before {
+    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
     content: "";
     display: block;
@@ -1929,6 +1858,10 @@ input[type="search"]:active {
     left: 0;
     width: 100%;
     z-index: 0; }
+  .page-head h1,
+  .page-head h2,
+  .page-head h3 {
+    color: white; }
 
 .page-head__logo {
   float: left;
@@ -2001,7 +1934,8 @@ input[type="search"]:active {
   color: #80949d;
   display: block;
   padding: 10px 20px;
-  transition: all .25s;
+  -webkit-transition: all .25s;
+          transition: all .25s;
   overflow: hidden; }
   .site-nav__link:visited {
     color: #80949d; }
@@ -2027,14 +1961,76 @@ input[type="search"]:active {
   float: right;
   height: 30px;
   text-indent: -9999px;
-  transition: all .50s ease-in;
+  -webkit-transition: all .50s ease-in;
+          transition: all .50s ease-in;
   width: 30px;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-  user-select: none; }
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
   #site-nav__toggle.open {
     background-position: right center;
     /* [1] */ }
+
+/*------------------------------------*\
+    #PAGE-NAV
+\*------------------------------------*/
+.page-nav__title {
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin-bottom: 20px; }
+
+.page-nav__list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0; }
+
+.page-nav__item {
+  background: none;
+  margin-bottom: 0;
+  padding-left: 0; }
+
+.page-nav__link {
+  background: #f4f6f6;
+  display: block;
+  margin-bottom: 2px;
+  position: relative;
+  padding: 10px 40px;
+  -webkit-transition: color .15s;
+          transition: color .15s; }
+  .page-nav__link:before, .page-nav__link:after {
+    color: #cad2d4;
+    content: "\203a\00fe0e";
+    display: inline-block;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px;
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    -webkit-transition: opacity .15s ease-out;
+            transition: opacity .15s ease-out; }
+  .page-nav__link:after {
+    color: #e5531b;
+    left: 10px;
+    opacity: 0;
+    -webkit-transition-property: all;
+            transition-property: all; }
+  .page-nav__link:hover:after {
+    opacity: 1;
+    left: 5px; }
+  .page-nav__link:hover:before, .page-nav__link:focus:before {
+    opacity: 0; }
+  .page-nav__link:hover:after, .page-nav__link:focus:after {
+    left: 20px;
+    opacity: 1; }
+  .page-nav__link.current {
+    color: #1d2326;
+    font-style: italic; }
 
 /*------------------------------------*\
     #FOOTER
@@ -2044,9 +2040,12 @@ input[type="search"]:active {
  */
 .page-foot {
   background: #2b3438 url(../img/interface/bg-tile.png) 0 0;
-  padding-top: 20px;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.6em;
   position: relative; }
   .page-foot:before {
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
     content: "";
     display: block;
@@ -2058,6 +2057,11 @@ input[type="search"]:active {
   .page-foot p {
     font-size: 14px;
     font-size: 1.4rem; }
+  .page-foot ul {
+    padding-left: 0; }
+  .page-foot li {
+    background: none;
+    padding-left: 0; }
   .page-foot a {
     color: #80949d; }
     .page-foot a:visited {
@@ -2068,77 +2072,6 @@ input[type="search"]:active {
 .page-foot__logo {
   display: block;
   margin-bottom: 10px; }
-
-.feature-list {
-  margin: 0;
-  padding-left: 0;
-  text-align: center; }
-
-.feature-list__item {
-  background: none;
-  box-sizing: border-box;
-  padding: 0 10px; }
-  .feature-list__item p {
-    margin-bottom: 10px; }
-
-.feature-list__icon {
-  margin: 0 auto 20px;
-  max-width: 120px;
-  width: 100%; }
-
-.arrow-link {
-  font-style: italic; }
-  .arrow-link:after {
-    color: #2b3438;
-    content: "\203a";
-    font-style: normal;
-    opacity: 0;
-    position: relative;
-    left: 0;
-    transition: all .10s ease-in; }
-  .arrow-link:hover:after {
-    opacity: 1;
-    left: 5px; }
-
-.client-list {
-  margin-botom: 20px;
-  padding-left: 0;
-  text-align: center; }
-
-.client-list__item {
-  background: none;
-  display: inline-block;
-  margin: 0 20px 20px;
-  padding: 0; }
-
-.form-quote .form-group__title {
-  display: none; }
-.form-quote .textfield {
-  background: #1d2326;
-  box-shadow: inset 3px 3px 0 #191e20;
-  color: white; }
-  .form-quote .textfield:hover {
-    border-color: #485156; }
-  .form-quote .textfield:focus {
-    border-color: #535e64; }
-.form-quote .btn {
-  width: 100%; }
-
-.page-head__caption {
-  margin: 40px 0; }
-  .page-head__caption p {
-    font-size: 20px;
-    font-size: 2rem; }
-
-.page-foot {
-  font-size: 14px;
-  font-size: 1.4rem;
-  line-height: 1.6em; }
-  .page-foot ul {
-    padding-left: 0; }
-  .page-foot li {
-    background: none;
-    padding-left: 0; }
 
 .page-foot__title {
   font-size: 14px;
@@ -2163,7 +2096,8 @@ input[type="search"]:active {
 
 .page-foot__legal {
   clear: both;
-  margin: 0; }
+  margin: 0;
+  padding-top: 30px; }
   .page-foot__legal li {
     display: inline-block;
     margin-right: 5px; }
@@ -2175,6 +2109,81 @@ input[type="search"]:active {
     .page-foot__legal .copyright:before {
       display: none; }
 
+.feature-list {
+  margin: 0;
+  padding-left: 0;
+  text-align: center; }
+
+.feature-list__item {
+  background: none;
+  box-sizing: border-box;
+  padding: 0 10px; }
+  .feature-list__item p {
+    margin-bottom: 10px; }
+
+.feature-list__icon {
+  margin: 0 auto 20px;
+  max-width: 120px;
+  width: 100%; }
+
+.arrow-link {
+  font-style: italic; }
+  .arrow-link:after {
+    color: #2b3438;
+    content: "\203a\00fe0e";
+    font-style: normal;
+    opacity: 0;
+    position: relative;
+    left: 0;
+    -webkit-transition: all .10s ease-in;
+            transition: all .10s ease-in; }
+  .arrow-link:hover:after {
+    opacity: 1;
+    left: 5px; }
+
+.client-list {
+  margin-botom: 20px;
+  padding-left: 0;
+  text-align: center; }
+
+.client-list__item {
+  background: none;
+  display: inline-block;
+  margin: 0 20px 20px;
+  padding: 0; }
+
+.form-quote .form-group__title {
+  display: none; }
+.form-quote .text-input {
+  background: #1d2326;
+  border-color: #3c4448;
+  box-shadow: inset 3px 3px 0 #191e20;
+  color: white; }
+  .form-quote .text-input:hover {
+    border-color: #485156; }
+  .form-quote .text-input:focus {
+    border-color: #535e64; }
+.form-quote .btn {
+  width: 100%; }
+
+.form-quote__text {
+  font-style: italic;
+  text-align: center; }
+  .form-quote__text a {
+    color: white;
+    font-size: 20px;
+    font-size: 2rem; }
+    .form-quote__text a:visited {
+      color: white; }
+    .form-quote__text a:hover, .form-quote__text a:focus {
+      color: #e5531b; }
+
+.page-head__caption {
+  margin: 40px 0; }
+  .page-head__caption p {
+    font-size: 20px;
+    font-size: 2rem; }
+
 .contact-list .icon:before {
   color: #e5531b;
   font-size: 20px;
@@ -2182,6 +2191,7 @@ input[type="search"]:active {
   top: 1px; }
 
 .social-list li {
+  display: inline-block;
   margin-right: 5px; }
 .social-list a {
   color: #e5531b; }
@@ -2202,17 +2212,23 @@ input[type="search"]:active {
 /*------------------------------------*\
     #ARTICLES
 \*------------------------------------*/
-.h-feed .p-name {
-  font-size: 16px;
-  font-size: 1.6rem;
-  margin-bottom: 0; }
-.h-feed .dt-published {
-  color: #9dacb3;
-  font-size: 14px;
-  font-size: 1.4rem;
-  font-style: italic; }
-.h-feed .p-summary {
-  margin-bottom: 10px; }
+.h-feed {
+  padding-left: 0; }
+  .h-feed > li {
+    background: none;
+    padding-left: 0;
+    margin-bottom: 20px; }
+  .h-feed .p-name {
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin-bottom: 0; }
+  .h-feed .dt-published {
+    color: #9dacb3;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-style: italic; }
+  .h-feed .p-summary {
+    margin-bottom: 10px; }
 
 .h-entry__image-link {
   display: block;
@@ -2288,7 +2304,8 @@ input[type="search"]:active {
     background: transparent !important;
     box-shadow: none !important;
     color: black !important;
-    filter: none !important;
+    -webkit-filter: none !important;
+            filter: none !important;
     -ms-filter: none !important;
     text-shadow: none !important; }
 
@@ -2346,13 +2363,27 @@ input[type="search"]:active {
  */
 @media only screen and (min-width: 480px) {
   .feature-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap; }
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
 
   .feature-list__item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     float: left;
     width: 50%; }
     .feature-list__item:nth-child(odd) {
@@ -2511,24 +2542,47 @@ input[type="search"]:active {
     width: 33.33333%; }
 
   .feature-quote {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex; }
 
   .feature-quote__text {
-    flex: 0 1 auto;
-    order: 2;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
     width: 66.66666%; }
 
   .feature-quote__cite {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    order: 1;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
     margin-top: 0;
     padding-right: 30px;
     width: 33.33333%; }
 
   .feature-quote__avatar {
-    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
     height: 75px;
     width: 75px; }
 
@@ -2558,7 +2612,7 @@ input[type="search"]:active {
    */
   .grid {
     *zoom: 1;
-    margin: 0 0 0 -20px;
+    margin: 0 0 0 -40px;
     /* [1] */ }
     .grid:before, .grid:after {
       content: "";
@@ -2573,7 +2627,7 @@ input[type="search"]:active {
   .grid__item {
     box-sizing: border-box;
     float: left;
-    padding-left: 20px;
+    padding-left: 40px;
     /* [1] */ }
 
   /*------------------------------------*\
@@ -2606,17 +2660,42 @@ input[type="search"]:active {
     .feature-list__item:nth-child(4n+1) {
       clear: left; }
 
+  .page-foot .grid {
+    margin-left: -25px; }
+
+  .page-foot__item {
+    padding-left: 25px; }
+
   .page-foot__item--about {
     float: left;
     padding-right: 20px;
-    width: 50%; }
+    width: 45%; }
 
-  .page-foot__item--sitemap,
-  .page-foot__item--resources {
+  .page-foot__item--sitemap {
+    padding-left: 40px;
     width: 15%; }
 
+  .page-foot__item--resources {
+    width: 17%; }
+
   .page-foot__item--contact {
-    width: 20%; }
+    width: 22%; }
+
+  .page-nav__title {
+    margin-bottom: 10px; }
+
+  .page-nav__link {
+    background: none;
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 2.5px 0 2.5px 16px; }
+    .page-nav__link:before, .page-nav__link:after {
+      top: 7px;
+      left: 0; }
+    .page-nav__link:after {
+      left: -10px; }
+    .page-nav__link:hover:after, .page-nav__link:focus:after {
+      left: 0; }
 
   /*------------------------------------*\
       #ARTICLES

@@ -27,38 +27,15 @@ $color-primary				: rgb(229,83,27);
 $color-primary-light		: rgb(234,117,73);
 $color-primary-lighter 		: rgb(250,221,209);
 
-/**
- * Secondary (navy blue).
- */
- 
-$color-secondary-darker		: rgb(37,128,204);
-$color-secondary-dark		: rgb(41,144,229);
-$color-secondary			: rgb(46,160,255);
-$color-secondary-light		: rgb(88,179,255);
-$color-secondary-lighter	: rgb(213,236,255);
-
 
 /**
  * Useful alert colours (traffic light).
  */
 
-$red-darker					: rgb(168,33,53);
-$red-dark					: rgb(189,37,59);
-$red						: rgb(210,41,66);
-$red-light					: rgb(219,84,104);
-$red-lighter				: rgb(246,212,217);
 
-$yellow-darker				: rgb(200,156,16);
-$yellow-dark				: rgb(225,175,18);
+$red						: rgb(207,23,63);
 $yellow						: rgb(250,195,20);
-$yellow-light				: rgb(251,207,67);
-$yellow-lighter				: rgb(254,243,208);
-
-$green-darker				: rgb(142,146,63);
-$green-dark					: rgb(160,165,71);
-$green						: rgb(178,183,79);
-$green-light				: rgb(193,197,114);
-$green-lighter				: rgb(240,241,220);
+$green						: rgb(155,207,23);
 
 
 
@@ -117,7 +94,7 @@ $alt-font-family: Cambria, Georgia, Times, "Times New Roman";
  */ 
 
 $code-font-family		: Monaco, Courier New, monospace;
-$code-font-color		: $color-secondary;
+$code-font-color		: $green;
 
 
 
@@ -131,13 +108,13 @@ $code-font-color		: $color-secondary;
  * Base.
  */
 
-$base-color 		: $color-secondary;
+$base-color 		: $color-primary;
 
 /**
  * Texture.
  */
  
-$border-color    	: $grey;
+$border-color    	: $grey-lighter;
 
 /**
  * Links.
@@ -160,35 +137,27 @@ $link-color-focus 	: $link-color-hover;
  * Alert base styles.
  */
 
-$alert-bg 					: $grey-light;
-$alert-border-color			: darken($grey-light,5%);
+$alert-bg 					: $grey-dark;
+$alert-border-color			: darken($grey-dark,5%);
 $alert-border-width 		: 2px;
 $alert-border-style 		: solid;
-$alert-color				: $grey-lighter;
+$alert-color				: lighten($grey-dark,45%);
 
 /**
  * Error alerts.
  */
  
 $alert-error-bg				: $red;
-$alert-error-border-color	: $red-dark;
-$alert-error-color			: $red-lighter;
-
-/**
- * Info alerts.
- */
- 
-$alert-info-bg 				: $color-primary;
-$alert-info-border-color  	: $color-primary-dark;
-$alert-info-color 			: $color-primary-lighter;
+$alert-error-border-color	: darken($red,5%);
+$alert-error-color			: lighten($red,45%);
 
 /**
  * Success alerts.
  */
  
 $alert-success-bg 			: $green;
-$alert-success-border-color : $green-dark;
-$alert-success-color 		: $green-lighter;
+$alert-success-border-color : darken($green,5%);
+$alert-success-color 		: lighten($green,45%);
 
 
 
@@ -244,8 +213,8 @@ $btn-neutral-border-color-hover	: darken($btn-neutral-border-color,5%);
  */
 
 $table-bg 				: transparent;
-$table-stripe 			: $grey-lighter;
-$table-hover 			: darken($table-stripe,5%);
+$table-stripe 			: lighten($grey-lighter,5%);
+$table-hover 			: darken($table-stripe,2.5%);
 $table-border 			: $white;
 $table-border-width		: 2px;
 $table-border-style		: solid;
@@ -263,13 +232,13 @@ $table-border-style		: solid;
  */
 
 $input-bg 				: $white;
-$input-border 			: $grey;
+$input-border 			: $border-color;
 $input-border-width		: 2px;
 $input-border-style		: solid;
 $input-hover 			: darken($input-border,10%);
 $input-focus  			: darken($input-border,20%);
 $input-color			: $text-color;
-$input-shadow			: inset 3px 3px 0 $grey-lighter;
+$input-shadow			: inset 3px 3px 0 lighten($grey-lighter,5%);
 
 /**
  * Placeholders.

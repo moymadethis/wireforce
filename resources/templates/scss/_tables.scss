@@ -17,9 +17,8 @@ table {
 	background-color: $table-bg;
 	border-collapse: separate;
 	border-spacing: 0 2px;
-	margin: -2px -2px $baseline;
+	margin: -2px -2px $baseline+2;
 	table-layout: fixed;
-	//max-width: 100%;
 	width: calc(100% + 4px);
 	width: 100%\9; /* [1] */
 	
@@ -30,9 +29,9 @@ table {
 
 th,
 td {
-	@include font-size(14);
+	@include font-size(13);
 	line-height: $font-lineheight;
-	padding: 15px 20px;
+	padding: 10px;
 	text-align: left;
 	vertical-align: top;
 }
@@ -52,23 +51,13 @@ th {
 	font-weight: 600;
 	
 	thead & {
-		@include font-size(16);
+		@include font-size(14);
 		padding-top: 0;
 		vertical-align: bottom;
 	}
-	
-	&.order { /* [1] */
-		background: url(../img/sprite/table-order.png) no-repeat 20px -94px;
-		cursor: pointer;
-		padding-left: 35px;
-		vertical-align: top; /* [3] */
-	}
-		
-	&.order--ascending 	{background-position: 20px 6px;} 	/* [2] */
-	&.order--descending {background-position: 20px -194px;}  /* [2] */
 }
 
-td {
+tbody tr:nth-child(odd) td {
 	background-color: $table-stripe;
 	transition: background .25s;
 }
@@ -96,7 +85,7 @@ tbody > tr:hover > th {
 
 	th,
 	td {
-		padding: 5px 20px;
+		padding: 5px 10px;
 		
 		thead & {
 			padding-top: 0;
@@ -104,67 +93,3 @@ tbody > tr:hover > th {
 	}
 }
 
-
-/**
- * Use `.table-bordered` to add a border to every edge of the table/cells.
- */
-
-.table-bordered {
-	border-spacing: 2px;
-}
-
-
-/**
- * Use `.table-inverted` to change cell background-color to white. Mainly used
- * when a table is placed within in a light grey `.boxout` element to make cell
- * backgrounds visible again.
- */
-
-.table-inverted {
-	
-	tbody {
-		
-		th,
-		td {
-			background: $white;
-		}
-	}
-	
-	tbody > tr:hover td,
-	tbody > tr:hover th {
-		background-color: darken($white,1%);
-	}
-}
-
-
-/**
- * Use `.table-striped` to add a background to table cells but only those within
- * 'odd' table rows to create a striped effect.
- */
-
-.table-striped {
-
-	tbody tr:nth-child(odd) td,
-	tbody tr:nth-child(odd) th {
-		background-color: $table-stripe;
-	}
-}
-
-
-
-
-
-/*
-
-table {
-	
-	td {
-		display: block;
-		padding: $baseline/2 $baseline 0;
-		
-		&:last-child {
-			padding-bottom: $baseline/2;
-		}
-	}
-}
-*/
