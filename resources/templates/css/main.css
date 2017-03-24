@@ -218,7 +218,8 @@ h6 {
 h1 small,
 h2 small {
   color: #3c4448;
-  font-weight: normal; }
+  font-weight: normal;
+  text-transform: none; }
 
 h1,
 .h1 {
@@ -424,7 +425,7 @@ blockquote {
  * Base styling for `blockquote` element.
  */
 .feature-quote {
-  margin: 20px 0 0;
+  margin: 40px 0;
   padding-top: 5px; }
   .feature-quote p {
     color: #faddd1;
@@ -707,6 +708,7 @@ a {
   position: relative;
   text-align: center;
   text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   text-transform: uppercase;
   -webkit-transition: all .25s;
           transition: all .25s;
@@ -919,9 +921,6 @@ fieldset {
  *    consistency. And also for when a class of `.form-horz` is used to present
  *    the label and controls horizontally aligned which is achieved using floats
  *    and extended in _768.scss.
- * 3. When a class of `.error` is applied we adjust the colouring of text/input
- *    elements so it stands out, drawing the users attention to where they've
- *    made a mistake entering data on the form.
  */
 .form-group,
 .form-group__title,
@@ -937,22 +936,28 @@ fieldset {
     display: table; }
   .form-group:after {
     clear: both; }
-  .form-group.error {
-    /* [3] */ }
-    .form-group.error .form-group__title,
-    .form-group.error .error__text,
-    .form-group.error .required {
-      color: #cf173f; }
-    .form-group.error textarea,
-    .form-group.error .textfield {
-      border-color: #b81438;
-      background-color: #f7bbc8;
-      box-shadow: inset 2px 2px 0 #f28da3;
-      color: #cf173f; }
-    .form-group.error ::-webkit-input-placeholder {
-      color: #ed5f7e; }
-    .form-group.error ::-moz-placeholder {
-      color: #ed5f7e; }
+
+/**
+ * When a class of `.error` is applied we adjust the colouring of text/input
+ * elements so it stands out, drawing the users attention to where they've made
+ * a mistake entering data on the form.
+ */
+.form-group.error .form-group__title,
+.form-group.error .error__text,
+.form-group.error .required {
+  color: #cf173f; }
+.form-group.error textarea,
+.form-group.error .text-input {
+  border-color: #b81438;
+  background-color: #f7bbc8;
+  box-shadow: inset 3px 3px 0 #f5a4b5; }
+.form-group.error ::-webkit-input-placeholder {
+  color: #e83159; }
+.form-group.error ::-moz-placeholder {
+  color: #e83159; }
+
+.error__text {
+  margin-top: -10px; }
 
 /**
  * Extends `.form-group` for more control over groups of buttons usually located
@@ -1015,8 +1020,7 @@ label {
     display: block; }
 
 .required {
-  color: #e5531b;
-  font-weight: 600; }
+  color: #e5531b; }
 
 /**
  * Default textfield & textarea styling.
@@ -1029,8 +1033,10 @@ textarea,
   box-shadow: inset 3px 3px 0 #f4f6f6;
   box-sizing: border-box;
   border: 2px solid #e6eaeb;
-  color: #80949d;
+  color: #2b3438;
   display: inline-block;
+  font-size: 14px;
+  font-size: 1.4rem;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   height: 40px;
   line-height: 40px;
@@ -1061,15 +1067,15 @@ textarea {
  * Text input placeholder styling.
  */
 ::-webkit-input-placeholder {
-  color: #80949d;
-  font-size: 16px;
-  font-size: 1.6rem;
+  color: #9dacb3;
+  font-size: 14px;
+  font-size: 1.4rem;
   font-style: italic; }
 
 ::-moz-placeholder {
-  color: #80949d;
-  font-size: 16px;
-  font-size: 1.6rem;
+  color: #9dacb3;
+  font-size: 14px;
+  font-size: 1.4rem;
   font-style: italic; }
 
 /**
@@ -1225,22 +1231,22 @@ input[type="search"]:active {
  * `select` replacement styling.
  */
 .selector {
-  background: #3c4448 url(../img/sprite/form-inputs.png) no-repeat right -80px;
+  background: #3c4448 url(../img/sprite/form-inputs.png) no-repeat right -40px;
   border: 2px solid #3c4448;
   box-sizing: border-box;
-  font-size: 16px;
-  font-size: 1.6rem;
+  font-size: 14px;
+  font-size: 1.4rem;
   font-style: italic;
   height: 40px;
-  line-height: 38px;
+  line-height: 36px;
   overflow: hidden;
   margin-bottom: 10px;
   padding-right: 38px;
   position: relative;
   width: 100%; }
   .selector span {
-    background-color: #1d2326;
-    color: #80949d;
+    background-color: #2b3438;
+    color: #e6eaeb;
     cursor: pointer;
     display: block;
     height: 100%;
@@ -1274,14 +1280,14 @@ input[type="search"]:active {
 .checker,
 .radio {
   height: 20px;
-  margin: 0 5px 10px 0;
+  margin: 0 8px 10px 0;
   position: relative;
   vertical-align: text-top;
   width: 20px; }
   .checkbox .checker, .radiobtn .checker, .checkbox
   .radio, .radiobtn
   .radio {
-    margin: -3px 5px 0 0;
+    margin: -3px 8px 0 0;
     vertical-align: middle; }
   .checker span,
   .radio span {
@@ -1328,7 +1334,7 @@ input[type="search"]:active {
   margin-bottom: 10px;
   overflow: hidden;
   position: relative;
-  padding-right: 106px;
+  padding-right: 125px;
   width: 100%; }
   .uploader .btn {
     cursor: pointer;
@@ -1341,13 +1347,13 @@ input[type="search"]:active {
     position: absolute;
     top: 0;
     right: 0;
-    width: 100px; }
+    width: 120px; }
   .uploader .filename {
     background-color: white;
     border: 2px solid #e6eaeb;
     box-shadow: inset 3px 3px 0 #f4f6f6;
     box-sizing: border-box;
-    color: #80949d;
+    color: #9dacb3;
     cursor: default;
     display: block;
     float: left;
@@ -1780,7 +1786,8 @@ input[type="search"]:active {
   background: #f4f6f6; }
 
 .band--dark {
-  background: #2b3438; }
+  background: #2b3438;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25); }
   .band--dark h1,
   .band--dark h2,
   .band--dark h3,
@@ -1846,7 +1853,8 @@ input[type="search"]:active {
 .page-head {
   background: #2b3438 url(../img/interface/bg-tile.png) 0 0;
   padding-top: 20px;
-  position: relative; }
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25); }
   .page-head:before {
     background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
@@ -2043,7 +2051,8 @@ input[type="search"]:active {
   font-size: 14px;
   font-size: 1.4rem;
   line-height: 1.6em;
-  position: relative; }
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25); }
   .page-foot:before {
     background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
@@ -2163,6 +2172,11 @@ input[type="search"]:active {
     border-color: #485156; }
   .form-quote .text-input:focus {
     border-color: #535e64; }
+.form-quote .selector span {
+  background-color: #1d2326;
+  color: #9dacb3; }
+.form-quote .selector:hover span {
+  background-color: #3c4448; }
 .form-quote .btn {
   width: 100%; }
 
@@ -2179,7 +2193,7 @@ input[type="search"]:active {
       color: #e5531b; }
 
 .page-head__caption {
-  margin: 40px 0; }
+  margin: 60px 0 80px; }
   .page-head__caption p {
     font-size: 20px;
     font-size: 2rem; }
@@ -2450,6 +2464,7 @@ input[type="search"]:active {
     float: left;
     text-align: right;
     position: relative;
+    top: 8px;
     width: 30%; }
     .form-horz .form-group__title .required {
       position: absolute;

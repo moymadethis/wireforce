@@ -25,6 +25,7 @@
 
 .band--dark {
 	background: $grey-dark;
+	text-shadow: 0 1px 1px rgba($black,.25);
 	
 	h1,
 	h2,
@@ -124,6 +125,7 @@
 	background: $grey-dark url(../img/interface/bg-tile.png) 0 0;
 	padding-top: $baseline;
 	position: relative;
+	text-shadow: 0 1px 1px rgba($black,.25);
 	
 	&:before {
 		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,.40) 100%);
@@ -358,6 +360,7 @@
 	@include font-size(14);
 	line-height: $font-lineheight;
 	position: relative;
+	text-shadow: 0 1px 1px rgba($black,.25);
 	
 	&:before {
 		background: linear-gradient(to bottom, rgba(0,0,0,.40) 0%,rgba(0,0,0,0) 100%);
@@ -543,6 +546,21 @@
 		&:focus {border-color: lighten($grey,10%);}
 	}
 	
+	.selector {
+		
+		span {
+			background-color: $grey-darker;
+			color: $placeholder-color;
+		}
+		
+		&:hover {
+			
+			span {
+				background-color: $grey;
+			}
+		}
+	}
+	
 	.btn {
 		width: 100%;
 	}
@@ -571,7 +589,7 @@
 
 
 .page-head__caption {
-	margin: $baseline*2 0;
+	margin: $baseline*3 0 $baseline*4;
 	
 	p {
 		@include font-size(20);
