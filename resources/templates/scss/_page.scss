@@ -182,7 +182,7 @@
  *    styling - as I assume they're in for a reason!
  */
 
-.site-nav__list {
+.site-nav ul {
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -199,7 +199,7 @@
 	}
 }
 
-.site-nav__item {
+.site-nav li {
 	background: none;
 	display: block;
 	font-weight: 600;
@@ -209,7 +209,7 @@
 	width: 100%;
 }
 
-.site-nav__link {
+.site-nav ul a {
 	background: rgba($black,.30);
 	border-bottom: 2px solid transparent;
 	box-sizing: border-box;
@@ -233,7 +233,7 @@
 		border-color: $color-primary-light;
 	}
 	
-	.selected & {
+	.current-menu-item & {
 		background: rgba($black,.50);
 		border-color: $color-primary-light;
 		color: $white;
