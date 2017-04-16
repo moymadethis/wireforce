@@ -39,6 +39,7 @@ h1 small,
 h2 small {
 	color: $grey;
 	font-weight: normal;
+	text-transform: none;
 }
 
 h1,
@@ -313,7 +314,7 @@ blockquote {
  */
 
 .feature-quote {
-	margin: $baseline 0 0;
+	margin: $baseline*2 0;
 	padding-top: 5px;
 	
 	p {

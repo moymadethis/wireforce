@@ -54,13 +54,13 @@ input[type="search"]:active {
  */
 
 .selector {
-	background: $grey url(../img/sprite/form-inputs.png) no-repeat right -80px;
+	background: $grey url(../img/sprite/form-inputs.png) no-repeat right -40px;
 	border: 2px solid $grey;
 	box-sizing: border-box;
-	@include font-size(16);
+	@include font-size(14);
 	font-style: italic;
 	height: 40px;
-	line-height: 38px;
+	line-height: 36px;
 	overflow: hidden;
 	margin-bottom: $baseline/2;
 	padding-right: 38px;
@@ -68,8 +68,8 @@ input[type="search"]:active {
 	width: 100%;
 	
 	span {
-		background-color: $grey-darker;
-		color: $text-color;
+		background-color: $grey-dark;
+		color: $grey-lighter;
 		cursor: pointer;
 		display: block; 
 		height: 100%;
@@ -114,14 +114,14 @@ input[type="search"]:active {
 .checker,
 .radio {
 	height: 20px;
-	margin: 0 5px 10px 0;
+	margin: 0 8px 10px 0;
 	position: relative;
 	vertical-align: text-top;
 	width: 20px;
 	
 	.checkbox &,
 	.radiobtn & {
-		margin: -3px 5px 0 0;
+		margin: -3px 8px 0 0;
 		vertical-align: middle;
 	}
 	
@@ -182,7 +182,7 @@ input[type="search"]:active {
 	margin-bottom: $baseline/2;
 	overflow: hidden;
 	position: relative;
-	padding-right: 106px;
+	padding-right: 125px;
 	width: 100%;
 	
 	.btn {
@@ -195,7 +195,7 @@ input[type="search"]:active {
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 100px;
+		width: 120px;
 	}
 	
 	.filename {

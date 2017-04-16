@@ -237,12 +237,12 @@ $input-border-width		: 2px;
 $input-border-style		: solid;
 $input-hover 			: darken($input-border,10%);
 $input-focus  			: darken($input-border,20%);
-$input-color			: $text-color;
+$input-color			: $grey-dark;
 $input-shadow			: inset 3px 3px 0 lighten($grey-lighter,5%);
 
 /**
  * Placeholders.
  */
  
-$placeholder-color 	: $grey-light;
+$placeholder-color 		: lighten($grey-light,10%);
 

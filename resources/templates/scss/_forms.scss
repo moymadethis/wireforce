@@ -68,9 +68,6 @@ fieldset {
  *    consistency. And also for when a class of `.form-horz` is used to present
  *    the label and controls horizontally aligned which is achieved using floats
  *    and extended in _768.scss.
- * 3. When a class of `.error` is applied we adjust the colouring of text/input
- *    elements so it stands out, drawing the users attention to where they've
- *    made a mistake entering data on the form.
  */
 
 .form-group,
@@ -81,27 +78,37 @@ fieldset {
 
 .form-group {
 	@include clearfix;  /* [2] */
-	
-	&.error {  /* [3] */
-		
-		.form-group__title,
-		.error__text,
-		.required {
-			color: $alert-error-bg;
-		}
-		
-		textarea,
-		.textfield {
-			border-color: $alert-error-border-color;
-			background-color: lighten($alert-error-bg,40%);
-			box-shadow: inset 2px 2px 0 lighten($alert-error-bg,30%);
-			color: $red;
-		}
-		
-		::-webkit-input-placeholder {color: lighten($alert-error-bg,20%);}
-		::-moz-placeholder	 		{color: lighten($alert-error-bg,20%);}
-	}
 }
+ 
+/**
+ * When a class of `.error` is applied we adjust the colouring of text/input
+ * elements so it stands out, drawing the users attention to where they've made
+ * a mistake entering data on the form.
+ */
+ 
+.form-group.error {
+	
+	.form-group__title,
+	.error__text,
+	.required {
+		color: $alert-error-bg;
+	}
+	
+	textarea,
+	.text-input {
+		border-color: $alert-error-border-color;
+		background-color: lighten($alert-error-bg,40%);
+		box-shadow: inset 3px 3px 0 lighten($alert-error-bg,35%);
+	}
+	
+	::-webkit-input-placeholder {color: lighten($alert-error-bg,10%);}
+	::-moz-placeholder	 		{color: lighten($alert-error-bg,10%);}
+}
+
+.error__text {
+	margin-top: -$baseline/2;
+}
+
 
 /**
  * Extends `.form-group` for more control over groups of buttons usually located
@@ -172,7 +179,6 @@ label {
 
 .required {
 	color: $color-primary;
-	font-weight: 600;
 }
 
 
@@ -190,6 +196,7 @@ textarea,
 	border: $input-border-width $input-border-style $input-border;
 	color: $input-color;
 	display: inline-block;
+	@include font-size(14);
 	font-family: $font-family;
 	height: 40px;
 	line-height: 40px;
@@ -224,13 +231,13 @@ textarea {
  
 ::-webkit-input-placeholder {
 	color: $placeholder-color;
-	@include font-size($font-size);
+	@include font-size(14);
 	font-style: italic;
 }
 
 ::-moz-placeholder {
 	color: $placeholder-color;
-	@include font-size($font-size);
+	@include font-size(14);
 	font-style: italic;
 }
 

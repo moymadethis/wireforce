@@ -13,6 +13,7 @@
 		float: left;
 		text-align: right;
 		position: relative;
+		top: 8px;
 		width: 30%;
 		
 		.required {
@@ -57,13 +58,13 @@
  * 1. Overwrite widths set in _page.scss which are required for mobile nav.
  */
 
-.site-nav__list {
+.site-nav ul {
 	float: right;
 	margin-top: -$baseline;
 	width: auto;  /* [1] */
 }
 
-.site-nav__item {
+.site-nav li {
 	float: left;
 	width: auto; /* [1] */
 }
@@ -72,7 +73,7 @@
  * 1. Overwrite styles in _page.scss required for responsive-nav.js.
  */
 
-.site-nav__list {
+.site-nav ul {
 	overflow: visible; /* [1] */
 	position: relative; /* [1] */
 	
@@ -80,16 +81,16 @@
 		max-height: none; /* [1] */
 	}
 }
-.site-nav__item {
+.site-nav li {
 	padding-bottom: 0;
 }
 
-.site-nav__link {
+.site-nav ul a {
 	background: none;
 	border-width: 4px;
 	padding: $baseline*1.5 $baseline;
 	
-	.selected & {
+	.current-menu-item & {
 		background: rgba($black,.25);
 	}
 }
