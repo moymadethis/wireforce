@@ -102,42 +102,56 @@
 
 
 
-
-
-.page-nav__title {
-	margin-bottom: $baseline/2;
+.page-nav,
+.widget_meta,
+.widget_archive,
+.widget_categories,
+.widget_recent_entries,
+.widget_recent_comments {
+	
+	h3 {
+		margin-bottom: $baseline/2;
+	}
+	
+	li a {
+		background: none;
+		display: inline-block;
+		margin-bottom: 0;
+		padding: $baseline/8 0 $baseline/8 $baseline/1.25;
+		
+		&:before,
+		&:after {
+			top: 7px;
+			left: 0;
+		}
+		
+		&:after {
+			left: -$baseline/2;
+		}
+		
+		&:hover,
+		&:focus {
+		    
+		    &:after {
+			    left: 0;
+		    }
+		}
+	}
 }
 
 
-.page-nav__link {
-	background: none;
-	display: inline-block;
-	margin-bottom: 0;
-	padding: $baseline/8 0 $baseline/8 $baseline/1.25;
-	
-	&:before,
-	&:after {
-		top: 7px;
-		left: 0;
-	}
-	
-	&:after {
-		left: -$baseline/2;
-	}
-	
-	&:hover,
-	&:focus {
-	    
-	    &:after {
-		    left: 0;
-	    }
-	}
-}
+
 
 
 /*------------------------------------*\
     #ARTICLES
 \*------------------------------------*/
+
+
+.p-name {
+	@include font-size(20);
+}
+
 
 .featured-projects {
 	
@@ -149,6 +163,10 @@
 			width: 33.33333%;
 		}
 	}
+	
+	.p-name {
+		@include font-size(16);
+	}
 }
 
 
@@ -158,8 +176,13 @@
 	
 	.h-entry {
 		float: left;
+		margin-bottom: 0;
 		padding-left: 140px;
 		width: 50%;
+	}
+	
+	.p-name {
+		@include font-size(16);
 	}
 }
 

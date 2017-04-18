@@ -1,0 +1,13 @@
+
+.h-entry {
+	box-sizing: border-box;
+	@include clearfix;
+	text-align: left;
+	padding-left: 270px;
+}
+
+.h-entry__image-link {
+	float: left;
+	margin-left: -270px;
+	width: 250px;
+}
